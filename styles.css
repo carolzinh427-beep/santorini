@@ -450,7 +450,7 @@ header.scrolled .container {
   font-size: clamp(2.5rem, 5vw, 3.8rem);
   line-height: 1.15;
   margin-bottom: 1.5rem;
-  color: #333;
+  color: var(--roxo-profundo);
 }
 
 .section-desc {
