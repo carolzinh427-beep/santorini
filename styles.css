@@ -56,7 +56,7 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+  background: #e8f5e9;
   color: var(--preto-vinho);
 }
 
@@ -430,6 +430,7 @@ header.scrolled .container {
   padding: 8rem 0;
   position: relative;
   scroll-margin-top: 7rem;
+  background-color: #dcedc8;
 }
 
 .section-title-wrapper {
@@ -451,6 +452,7 @@ header.scrolled .container {
   font-size: clamp(2.5rem, 5vw, 3.8rem);
   line-height: 1.15;
   margin-bottom: 1.5rem;
+  color: #333;
 }
 
 .section-desc {
@@ -461,9 +463,17 @@ header.scrolled .container {
   font-weight: 300;
 }
 
-/* --- Section: Ambient Choose --- */
-.section-ambients {
-  background: linear-gradient(180deg, var(--preto-vinho) 0%, var(--verde-bistro-escuro) 100%);
+/* --- Section: Ambience --- */
+.section-ambience {
+  position: relative;
+  background: #dcedc8;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+.ambience-details {
+  background: transparent;
+  padding: 3rem 0;
   position: relative;
 }
 
@@ -525,10 +535,7 @@ header.scrolled .container {
 
 /* --- Section: Ambiente Gallery --- */
 .section-ambiente-gallery {
-  background:
-    radial-gradient(circle at 15% 0%, rgba(47, 107, 69, 0.35), transparent 36%),
-    radial-gradient(circle at 85% 12%, rgba(69, 38, 53, 0.55), transparent 38%),
-    linear-gradient(180deg, var(--verde-bistro-escuro) 0%, var(--roxo-profundo) 100%);
+  background: #dcedc8;
   border-top: 1px solid rgba(183, 131, 201, 0.2);
   border-bottom: 1px solid rgba(183, 131, 201, 0.2);
 }
@@ -651,16 +658,16 @@ header.scrolled .container {
 
 /* --- Section: Menu de Namorados --- */
 .section-menu {
-  background: #548352;
-  border-top: 1px solid rgba(183, 167, 149, 0.15);
-  border-bottom: 1px solid rgba(183, 167, 149, 0.15);
+  background: #dcedc8;
+  border-top: 1px solid rgba(183, 167, 149, 0.4);
+  border-bottom: 1px solid rgba(183, 167, 149, 0.4);
   position: relative;
   padding-top: 5.5rem;
   scroll-margin-top: 0;
 }
 
 .section-menu h2 {
-  color: var(--creme-papel);
+  color: var(--roxo-profundo);
 }
 
 .section-menu .section-tag {
@@ -670,12 +677,12 @@ header.scrolled .container {
 .menu-subtitle {
   font-family: var(--font-serif);
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  color: var(--creme-claro);
+  color: var(--roxo-profundo);
   text-align: center;
   font-style: italic;
   margin-top: -2.25rem;
   margin-bottom: 3rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .section-menu .section-title-wrapper {
@@ -1035,7 +1042,7 @@ header.scrolled .container {
 
 /* --- Section: Sensorial Experience --- */
 .section-sensorial {
-  background: linear-gradient(180deg, var(--preto-vinho) 0%, var(--verde-bistro-escuro) 100%);
+  background: #dcedc8;
   border-top: 1px solid rgba(183, 167, 149, 0.1);
   overflow: hidden;
 }
@@ -1177,6 +1184,14 @@ header.scrolled .container {
   margin: 0 auto;
 }
 
+.promise-footer {
+  margin-top: 3.5rem;
+  padding: 2.5rem;
+  background: transparent;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(183, 167, 149, 0.4);
+}
+
 .promise-content h3 {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 300;
@@ -1196,7 +1211,7 @@ header.scrolled .container {
 
 /* --- Section: Scarcity & Reservation CTA --- */
 .section-conversion {
-  background-color: var(--preto-vinho);
+  background-color: #dcedc8;
   text-align: center;
 }
 
@@ -1611,12 +1626,11 @@ header.scrolled .container {
 }
 
 /* --- Footer --- */
-footer {
-  background-color: var(--preto-vinho);
-  border-top: 1px solid rgba(183, 167, 149, 0.15);
-  padding: 5rem 0 3rem;
-  color: var(--creme-claro);
-  font-size: 0.9rem;
+.footer {
+  background-color: #dcedc8;
+  color: var(--preto-vinho);
+  padding: 4rem 0 2rem;
+  border-top: 1px solid rgba(183, 167, 149, 0.4);
 }
 
 .footer-grid {
