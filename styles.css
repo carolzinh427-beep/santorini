@@ -57,16 +57,17 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   background:
-    radial-gradient(circle at 15% 0%, rgba(47, 107, 69, 0.4) 0%, transparent 36%),
+    radial-gradient(circle at 15% 0%, rgba(200, 230, 201, 0.6) 0%, transparent 36%),
     radial-gradient(circle at 85% 8%, rgba(69, 38, 53, 0.65) 0%, transparent 42%),
-    linear-gradient(180deg, var(--roxo-profundo) 0%, var(--verde-bistro-escuro) 52%, var(--preto-vinho) 100%);
+    linear-gradient(180deg, var(--roxo-profundo) 0%, #c8e6c9 50%, #a5d6a7 100%);
+  color: var(--preto-vinho);
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
   font-weight: 500;
   letter-spacing: 0.03em;
-  color: var(--creme-papel);
+  color: var(--roxo-profundo);
 }
 
 a {
