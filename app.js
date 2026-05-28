@@ -6,7 +6,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+
   // --- 1. Floating WhatsApp Link ---
   // Managed directly via static HTML anchor link, no custom audio synthesis required.
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
   }
-  
+
   let currentStep = 1;
   const totalSteps = 3;
 
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openBookingModal(preselectedAmbient = '') {
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    
+
     if (preselectedAmbient) {
       bookingState.ambient = preselectedAmbient;
       // Highlight in the selector UI
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   closeModalBtn.addEventListener('click', closeBookingModal);
-  
+
   // Close on backdrop click
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Stepper logic
   function goToStep(step) {
     currentStep = step;
-    
+
     // Update step visibility
     formSteps.forEach(stepEl => {
       stepEl.classList.remove('active');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (step === 3) {
       // Success step: Hide standard footer buttons
       modalFooter.style.display = 'none';
-      
+
       // Update receipt summary info dynamically
       document.getElementById('receiptName').innerText = bookingState.name;
       document.getElementById('receiptPhone').innerText = bookingState.phone;
@@ -165,23 +165,23 @@ document.addEventListener('DOMContentLoaded', () => {
       bookingState.guests = document.getElementById('bookingGuests').value;
       return true;
     }
-    
+
     if (step === 2) {
       const nameInput = document.getElementById('userName');
       const phoneInput = document.getElementById('userPhone');
-      
+
       if (!nameInput.value.trim()) {
         alert('Por favor, informe seu nome completo para a reserva.');
         nameInput.focus();
         return false;
       }
-      
+
       if (!phoneInput.value.trim()) {
         alert('Por favor, forneça um número de WhatsApp para confirmação.');
         phoneInput.focus();
         return false;
       }
-      
+
       bookingState.name = nameInput.value;
       bookingState.phone = phoneInput.value;
       bookingState.wishes = document.getElementById('userWishes').value;
@@ -235,35 +235,35 @@ document.addEventListener('DOMContentLoaded', () => {
   petalsContainer.id = 'petalsContainer';
   document.body.appendChild(petalsContainer);
 
-  const petalColors = ['#976A6A', '#452635', '#5E4B3E', '#6F654F']; // Harmony of romantic tones
+  const petalColors = ['#976A6A', '#548352ff', '#5E4B3E', '#6F654F']; // Harmony of romantic tones
 
   function createPetal() {
     const petal = document.createElement('div');
     petal.classList.add('petal');
-    
+
     // Randomize initial position and size
     const size = Math.random() * 15 + 10; // between 10px and 25px
     petal.style.width = `${size}px`;
     petal.style.height = `${size}px`;
     petal.style.left = `${Math.random() * 100}vw`;
-    
+
     // Randomize rotation
     petal.style.transform = `rotate(${Math.random() * 360}deg)`;
-    
+
     // Choose random romantic gradient tone
     const color1 = petalColors[Math.floor(Math.random() * petalColors.length)];
     const color2 = '#131010'; // Blend with black wine
     petal.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
-    
+
     // Randomize duration and delay
     const duration = Math.random() * 6 + 6; // between 6s and 12s
     petal.style.animationDuration = `${duration}s`;
-    
+
     // Remove petal after animation completes
     setTimeout(() => {
       petal.remove();
     }, duration * 1000);
-    
+
     petalsContainer.appendChild(petal);
   }
 
