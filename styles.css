@@ -655,7 +655,7 @@ header.scrolled .container {
 
 /* --- Section: Menu de Namorados --- */
 .section-menu {
-  background: radial-gradient(circle at 50% 50%, var(--roxo-romantico) 0%, var(--preto-vinho) 80%);
+  background: #e8f5e9;
   border-top: 1px solid rgba(183, 167, 149, 0.15);
   border-bottom: 1px solid rgba(183, 167, 149, 0.15);
   position: relative;
@@ -666,12 +666,12 @@ header.scrolled .container {
 .menu-subtitle {
   font-family: var(--font-serif);
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  color: var(--dourado);
+  color: var(--roxo-profundo);
   text-align: center;
   font-style: italic;
   margin-top: -2.25rem;
   margin-bottom: 3rem;
-  font-weight: 300;
+  font-weight: 600;
 }
 
 .section-menu .section-title-wrapper {
