@@ -274,16 +274,15 @@ header.scrolled .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent; /* Allows the body gradient to show */
-  padding: 140px 20px 80px 20px; /* Much more spacious padding around the poster */
+  background-color: transparent;
+  padding: 65px 0 0 0; /* Space for the header */
 }
 
 .hero-poster {
   width: 100%;
-  max-width: 1100px;
+  max-width: 100%;
   height: auto;
   display: block;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
 .hero-content {
