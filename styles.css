@@ -47,8 +47,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--preto-vinho);
-  color: var(--creme-claro);
+  background-color: #e8f5e9;
+  color: var(--preto-vinho);
   overflow-x: hidden;
 }
 
@@ -184,11 +184,9 @@ header.scrolled {
 }
 
 header.scrolled .container {
-  background:
-    linear-gradient(135deg, rgba(18, 53, 31, 0.52), rgba(47, 107, 69, 0.3)),
-    rgba(250, 237, 217, 0.03);
-  border-color: rgba(156, 219, 178, 0.2);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+  background: rgba(232, 245, 233, 0.85);
+  border-color: rgba(84, 131, 82, 0.2);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(26px) saturate(1.45);
   -webkit-backdrop-filter: blur(26px) saturate(1.45);
 }
@@ -198,7 +196,7 @@ header.scrolled .container {
   font-size: 1.45rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: var(--creme-papel);
+  color: var(--roxo-profundo);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -232,7 +230,7 @@ header.scrolled .container {
   justify-content: center;
   padding: 0 0.75rem;
   border-radius: 999px;
-  color: var(--creme-papel);
+  color: var(--roxo-profundo);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -241,8 +239,8 @@ header.scrolled .container {
 
 .main-nav a:hover,
 .main-nav a:focus-visible {
-  background: rgba(183, 131, 201, 0.18);
-  color: var(--creme-claro);
+  background: rgba(84, 131, 82, 0.15);
+  color: var(--preto-vinho);
 }
 
 .btn-nav-reserve {

@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
   petalsContainer.id = 'petalsContainer';
   document.body.appendChild(petalsContainer);
 
-  const petalColors = ['#976A6A', '#548352ff', '#5E4B3E', '#6F654F']; // Harmony of romantic tones
+  const petalColors = ['#6a9770ff', '#548352ff', '#76a670ff', '#6F654F']; // Harmony of romantic tones
 
   function createPetal() {
     const petal = document.createElement('div');
