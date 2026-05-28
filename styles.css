@@ -277,8 +277,8 @@ header.scrolled .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--preto-vinho);
-  padding-top: 65px; /* Space for the header */
+  background-color: transparent; /* Allows the body gradient to show */
+  padding: 140px 20px 80px 20px; /* Much more spacious padding around the poster */
 }
 
 .hero-poster {
