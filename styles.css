@@ -1065,9 +1065,9 @@ header.scrolled .container {
 
 .sensorial-text {
   font-size: 1.15rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
-  color: var(--creme-claro);
+  color: var(--roxo-profundo);
   margin-bottom: 3.5rem;
   opacity: 0.9;
 }
@@ -1087,22 +1087,22 @@ header.scrolled .container {
 .feature-number {
   font-family: var(--font-serif);
   font-size: 1.8rem;
-  color: var(--dourado);
+  color: var(--roxo-profundo);
   line-height: 1;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .feature-info h4 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: var(--creme-papel);
+  color: var(--roxo-profundo);
 }
 
 .feature-info p {
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: var(--creme-claro);
-  opacity: 0.75;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--roxo-profundo);
+  opacity: 0.85;
   line-height: 1.6;
 }
 
