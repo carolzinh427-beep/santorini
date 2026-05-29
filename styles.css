@@ -428,7 +428,7 @@ header.scrolled .container {
   padding: 8rem 0;
   position: relative;
   scroll-margin-top: 7rem;
-  background-color: #dcedc8;
+  background-color: #e8f5e9;
 }
 
 .section-title-wrapper {
@@ -464,7 +464,7 @@ header.scrolled .container {
 /* --- Section: Ambience --- */
 .section-ambience {
   position: relative;
-  background: #dcedc8;
+  background: #e8f5e9;
   padding-top: 6rem;
   padding-bottom: 3rem;
 }
@@ -483,8 +483,9 @@ header.scrolled .container {
 }
 
 .ambient-card {
-  background: linear-gradient(180deg, rgba(47, 107, 69, 0.18) 0%, rgba(69, 38, 53, 0.38) 50%, rgba(19, 16, 16, 0.92) 100%);
-  border: 1px solid rgba(183, 131, 201, 0.22);
+  background: linear-gradient(180deg, rgba(243, 229, 245, 0.75) 0%, rgba(230, 210, 240, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(183, 131, 201, 0.45);
   border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
@@ -533,7 +534,7 @@ header.scrolled .container {
 
 /* --- Section: Ambiente Gallery --- */
 .section-ambiente-gallery {
-  background: #dcedc8;
+  background: #e8f5e9;
   border-top: 1px solid rgba(183, 131, 201, 0.2);
   border-bottom: 1px solid rgba(183, 131, 201, 0.2);
 }
@@ -603,16 +604,16 @@ header.scrolled .container {
 .ambient-card h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--creme-papel);
+  color: var(--roxo-profundo);
   line-height: 1.2;
 }
 
 .ambient-description {
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
-  color: var(--creme-claro);
-  opacity: 0.85;
+  color: var(--preto-vinho);
+  opacity: 0.95;
   margin-bottom: 2.5rem;
   flex-grow: 1;
 }
@@ -656,7 +657,7 @@ header.scrolled .container {
 
 /* --- Section: Menu de Namorados --- */
 .section-menu {
-  background: #dcedc8;
+  background: #e8f5e9;
   border-top: 1px solid rgba(183, 167, 149, 0.4);
   border-bottom: 1px solid rgba(183, 167, 149, 0.4);
   position: relative;
@@ -783,11 +784,10 @@ header.scrolled .container {
   gap: 1.5rem;
   margin-bottom: 1.5rem;
   padding: 1.3rem 1.5rem;
-  border: 1px solid rgba(183, 131, 201, 0.28);
+  border: 1px solid rgba(183, 131, 201, 0.45);
   border-radius: var(--radius-md);
-  background:
-    linear-gradient(135deg, rgba(18, 53, 31, 0.48), rgba(69, 38, 53, 0.42)),
-    rgba(250, 237, 217, 0.035);
+  background: linear-gradient(135deg, rgba(243, 229, 245, 0.9) 0%, rgba(230, 210, 240, 0.9) 100%);
+  backdrop-filter: blur(12px);
 }
 
 .menu-region-header > span {
@@ -815,7 +815,7 @@ header.scrolled .container {
 
 .menu-region-header p {
   margin-top: 0.35rem;
-  color: var(--dourado-brilhante);
+  color: var(--roxo-profundo);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -831,8 +831,9 @@ header.scrolled .container {
 }
 
 .menu-card {
-  background: rgba(19, 16, 16, 0.7);
-  border: 1px solid rgba(183, 167, 149, 0.15);
+  background: rgba(243, 229, 245, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(183, 131, 201, 0.4);
   border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
@@ -852,7 +853,8 @@ header.scrolled .container {
   grid-column: span 2;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  background: linear-gradient(135deg, rgba(69, 38, 53, 0.35) 0%, rgba(19, 16, 16, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(243, 229, 245, 0.9) 0%, rgba(230, 210, 240, 0.9) 100%);
+  backdrop-filter: blur(12px);
 }
 
 .menu-card-large .menu-image-wrapper {
@@ -929,7 +931,7 @@ header.scrolled .container {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--roxo-lavanda);
+  color: #7b1fa2;
   margin-bottom: 0.5rem;
   display: block;
 }
@@ -937,16 +939,16 @@ header.scrolled .container {
 .menu-card h3 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
-  color: var(--creme-papel);
+  color: var(--roxo-profundo);
   line-height: 1.2;
 }
 
 .menu-desc {
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
-  color: var(--creme-claro);
-  opacity: 0.85;
+  color: var(--preto-vinho);
+  opacity: 0.95;
   margin-bottom: 0;
 }
 
@@ -1040,7 +1042,7 @@ header.scrolled .container {
 
 /* --- Section: Sensorial Experience --- */
 .section-sensorial {
-  background: #dcedc8;
+  background: #e8f5e9;
   border-top: 1px solid rgba(183, 167, 149, 0.1);
   overflow: hidden;
 }
@@ -1209,7 +1211,7 @@ header.scrolled .container {
 
 /* --- Section: Scarcity & Reservation CTA --- */
 .section-conversion {
-  background-color: #dcedc8;
+  background-color: #e8f5e9;
   text-align: center;
 }
 
@@ -1625,7 +1627,7 @@ header.scrolled .container {
 
 /* --- Footer --- */
 .footer {
-  background-color: #dcedc8;
+  background-color: #e8f5e9;
   color: var(--preto-vinho);
   padding: 4rem 0 2rem;
   border-top: 1px solid rgba(183, 167, 149, 0.4);
@@ -1655,7 +1657,7 @@ header.scrolled .container {
   font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--dourado);
+  color: var(--roxo-profundo);
   margin-bottom: 1.5rem;
 }
 
@@ -2156,5 +2158,80 @@ header.scrolled .container {
   100% {
     transform: translateY(105vh) rotate(360deg) translateX(120px);
     opacity: 0;
+  }
+}
+
+/* --- Instagram CTA Section --- */
+.instagram-cta-wrapper {
+  background: #e8f5e9;
+  padding: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--roxo-romantico) 0%, var(--roxo-profundo) 100%);
+  color: var(--creme-claro);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 1.1rem 2.2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(46, 23, 58, 0.25);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  text-decoration: none;
+}
+
+.instagram-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(46, 23, 58, 0.4);
+  background: linear-gradient(135deg, var(--roxo-lavanda) 0%, var(--roxo-profundo) 100%);
+  color: #fff;
+}
+
+.instagram-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.instagram-link:hover .instagram-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* --- Nossa Promessa Poster Section --- */
+.promise-poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.promise-poster-img {
+  max-width: 100%;
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-warm);
+  border: 1px solid rgba(183, 131, 201, 0.25);
+}
+
+@media (max-width: 768px) {
+  .promise-poster-img {
+    border-radius: var(--radius-md);
+    max-height: 65vh;
+  }
+  .instagram-link {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
   }
 }
