@@ -23,11 +23,11 @@
   --preto-vinho: #131010;
   --dourado: #B7A795;
   --dourado-brilhante: #DFCEB7;
-  
+
   /* Fonts */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  
+
   /* Spacing & Borders */
   --radius-sm: 4px;
   --radius-md: 12px;
@@ -38,7 +38,9 @@
 }
 
 /* --- Base Resets & Global Styles --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -60,7 +62,10 @@ body {
   color: var(--preto-vinho);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-serif);
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -73,7 +78,10 @@ a {
   transition: var(--transition-smooth);
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
 }
 
@@ -100,7 +108,8 @@ img {
   margin: 1.5rem 0;
 }
 
-.ornament::before, .ornament::after {
+.ornament::before,
+.ornament::after {
   content: '';
   height: 1px;
   width: 50px;
@@ -121,7 +130,8 @@ img {
   bottom: 2rem;
   right: 2rem;
   z-index: 100;
-  background: #25d366; /* Standard WhatsApp Green for maximum brand recognition */
+  background: #25d366;
+  /* Standard WhatsApp Green for maximum brand recognition */
   color: #ffffff;
   padding: 0.85rem 1.5rem;
   border-radius: 50px;
@@ -273,7 +283,8 @@ header.scrolled .container {
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  padding: 65px 0 0 0; /* Space for the header */
+  padding: 65px 0 0 0;
+  /* Space for the header */
 }
 
 .hero-poster {
@@ -306,7 +317,7 @@ header.scrolled .container {
   flex-direction: column;
   gap: 0.3rem;
   margin-bottom: 1.5rem;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
 .hero h1 .title-primary {
@@ -428,7 +439,7 @@ header.scrolled .container {
   padding: 8rem 0;
   position: relative;
   scroll-margin-top: 7rem;
-  background-color: #e8f5e9;
+  background-color: #cee2d0;
 }
 
 .section-title-wrapper {
@@ -521,7 +532,8 @@ header.scrolled .container {
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
-  background: rgba(18, 53, 31, 0.85); /* verde-frances */
+  background: rgba(18, 53, 31, 0.85);
+  /* verde-frances */
   backdrop-filter: blur(8px);
   border: 1px solid rgba(183, 131, 201, 0.45);
   padding: 0.5rem 1.25rem;
@@ -773,7 +785,7 @@ header.scrolled .container {
   margin-top: 3rem;
 }
 
-.menu-region + .menu-region {
+.menu-region+.menu-region {
   margin-top: 4rem;
 }
 
@@ -790,7 +802,7 @@ header.scrolled .container {
   backdrop-filter: blur(12px);
 }
 
-.menu-region-header > span {
+.menu-region-header>span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1005,12 +1017,12 @@ header.scrolled .container {
   .menu-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .menu-card-large {
     grid-column: span 1;
     grid-template-columns: 1fr;
   }
-  
+
   .menu-card-large .menu-image-wrapper {
     height: 320px;
     border-right: none;
@@ -1136,7 +1148,7 @@ header.scrolled .container {
   border-radius: var(--radius-md);
   object-fit: cover;
   border: 2px solid var(--preto-vinho);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
   outline: 1px solid var(--dourado);
 }
 
@@ -1164,7 +1176,9 @@ header.scrolled .container {
 }
 
 @keyframes slowSpin {
-  100% { transform: rotate(350deg); }
+  100% {
+    transform: rotate(350deg);
+  }
 }
 
 /* --- Section: Emotional Promise --- */
@@ -1261,8 +1275,15 @@ header.scrolled .container {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(1.3); opacity: 1; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
 }
 
 .conversion-box h3 {
@@ -1353,7 +1374,7 @@ header.scrolled .container {
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.8), var(--shadow-glow);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), var(--shadow-glow);
   transform: translateY(30px) scale(0.95);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1653,7 +1674,8 @@ header.scrolled .container {
   max-width: 320px;
 }
 
-.footer-links h5, .footer-contact h5 {
+.footer-links h5,
+.footer-contact h5 {
   font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1711,8 +1733,15 @@ header.scrolled .container {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -1754,29 +1783,29 @@ header.scrolled .container {
     grid-row: auto;
     min-height: 420px;
   }
-  
+
   .sensorial-row {
     grid-template-columns: 1fr;
     gap: 4rem;
   }
-  
+
   .sensorial-image-collage {
     height: 480px;
   }
-  
+
   .collage-img-main {
     height: 400px;
   }
-  
+
   .collage-img-floating {
     height: 220px;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
   }
-  
+
   .footer-brand {
     grid-column: span 2;
   }
@@ -1790,12 +1819,12 @@ header.scrolled .container {
   .container {
     padding: 0 1rem;
   }
-  
+
   .section {
     padding: 4rem 0;
     scroll-margin-top: 6.5rem;
   }
-  
+
   header {
     padding: 0.75rem 0;
   }
@@ -1846,7 +1875,7 @@ header.scrolled .container {
     letter-spacing: 0.08em;
     white-space: nowrap;
   }
-  
+
   .hero {
     min-height: auto;
     padding: 8.75rem 0 4.5rem;
@@ -1900,7 +1929,7 @@ header.scrolled .container {
     font-size: 0.72rem;
     letter-spacing: 0.08em;
   }
-  
+
   .hero-highlights {
     display: grid;
     grid-template-columns: 1fr;
@@ -1926,7 +1955,7 @@ header.scrolled .container {
   .ambient-image-wrapper {
     height: 280px;
   }
-  
+
   .ambient-content {
     padding: 1.5rem;
   }
@@ -1957,7 +1986,7 @@ header.scrolled .container {
     margin-top: 2rem;
   }
 
-  .menu-region + .menu-region {
+  .menu-region+.menu-region {
     margin-top: 3rem;
   }
 
@@ -1986,7 +2015,7 @@ header.scrolled .container {
     font-size: 0.68rem;
     white-space: normal;
   }
-  
+
   .sensorial-features-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -2035,61 +2064,61 @@ header.scrolled .container {
   .promise-text {
     font-size: 1.18rem;
   }
-  
+
   .conversion-box {
     padding: 3rem 1.5rem;
   }
-  
+
   .urgency-counter {
     gap: 1rem;
   }
-  
+
   .counter-number {
     font-size: 2.2rem;
   }
-  
+
   .modal-progress {
     padding: 0 2rem;
   }
-  
+
   .modal-progress::before {
     left: 2rem;
     right: 2rem;
   }
-  
+
   .modal-body {
     padding: 2rem 1.5rem;
   }
-  
+
   .modal-ambient-picker {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .modal-footer {
     padding: 1rem 1.5rem 2rem;
     flex-direction: column-reverse;
   }
-  
+
   .btn-back {
     width: 100%;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  
+
   .footer-brand {
     grid-column: span 1;
   }
-  
+
   .footer-bottom {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .whatsapp-widget {
     left: 1rem;
     right: 1rem;
@@ -2139,8 +2168,10 @@ header.scrolled .container {
 .petal {
   position: absolute;
   top: -20px;
-  background: linear-gradient(135deg, #976A6A 0%, #452635 100%); /* Romantic purple/lavender tones */
-  border-radius: 15% 75% 25% 75%; /* Petal-like organic contour */
+  background: linear-gradient(135deg, #976A6A 0%, #452635 100%);
+  /* Romantic purple/lavender tones */
+  border-radius: 15% 75% 25% 75%;
+  /* Petal-like organic contour */
   opacity: 0.85;
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
   transform-origin: left top;
@@ -2152,9 +2183,11 @@ header.scrolled .container {
     transform: translateY(0) rotate(0deg) translateX(0);
     opacity: 0.85;
   }
+
   70% {
     opacity: 0.6;
   }
+
   100% {
     transform: translateY(105vh) rotate(360deg) translateX(120px);
     opacity: 0;
@@ -2230,6 +2263,7 @@ header.scrolled .container {
     border-radius: var(--radius-md);
     max-height: 65vh;
   }
+
   .instagram-link {
     padding: 0.9rem 1.8rem;
     font-size: 0.95rem;

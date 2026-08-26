@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Santorini Lounge — Restaurante & Lounge inspirados na Grécia. Gastronomia sofisticada, cocktails autorais, ambiente com arquitectura mediterrânea e noites inesquecíveis.">
+  <meta name="keywords"
+    content="Santorini Lounge, Restaurante Grego, Lounge Noturno, Gastronomia Mediterrânea, Reservas Santorini, Ouzo, Drinks Autorais">
+  <meta name="author" content="Santorini Lounge">
+  <title>Santorini Lounge | Restaurante & Lounge</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Santorini Lounge | Restaurante & Lounge">
+  <meta property="og:description" content="Gastronomia Mediterrânea • Lounge • Experiência Exclusiva">
+  <meta property="og:image" content="assets/hero.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- 1. Header & Navigation -->
+  <header id="mainHeader">
+    <div class="container">
+      <a href="#heroSection" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6a3 3 0 0 1 6 0v6" />
+        </svg>
+        SANTORINI LOUNGE
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#heroSection" class="active">Início</a>
+        <a href="#experienceSection">O Lounge</a>
+        <a href="#gastronomySection">Gastronomia</a>
+        <a href="#menuSection">Cardápio</a>
+        <a href="#eventsSection">Eventos</a>
+        <a href="#gallerySection">Galeria</a>
+        <a href="#locationSection">Contato</a>
+      </nav>
+
+      <button class="btn-primary btn-nav-reserve js-open-booking" id="navReserveBtn">
+        Reservar Mesa
+      </button>
+
+      <div class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Abrir Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="#heroSection" class="js-close-mobile">Início</a>
+    <a href="#experienceSection" class="js-close-mobile">O Lounge</a>
+    <a href="#gastronomySection" class="js-close-mobile">Gastronomia</a>
+    <a href="#menuSection" class="js-close-mobile">Cardápio</a>
+    <a href="#eventsSection" class="js-close-mobile">Eventos</a>
+    <a href="#gallerySection" class="js-close-mobile">Galeria</a>
+    <a href="#locationSection" class="js-close-mobile">Contato</a>
+    <button class="btn-primary js-open-booking js-close-mobile" style="margin-top: 20px;">
+      Reservar Mesa
+    </button>
+  </div>
+
+  <main>
+    <!-- 2. Hero Section (~100vh) -->
+    <section class="hero" id="heroSection">
+      <img src="assets/hero.png" alt="Santorini Lounge - Terraço e restaurante com vista mediterrânea" class="hero-bg">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <span class="hero-subtitle">Gastronomia • Lounge • Experiência</span>
+        <h1 class="hero-title">SANTORINI LOUNGE</h1>
+        <p class="hero-tagline">Sabores que te levam para os melhores momentos.</p>
+
+        <div class="hero-ctas">
+          <button class="btn-primary js-open-booking" id="heroBookingBtn">
+            Reservar Mesa
+          </button>
+          <a href="#menuSection" class="btn-secondary">
+            Ver Cardápio
+          </a>
+        </div>
+      </div>
+
+      <a href="#experienceSection" class="scroll-indicator">
+        <div class="scroll-mouse"></div>
+        <span>Descobrir</span>
+      </a>
+    </section>
+
+    <!-- 3. A Experiência Santorini (O Lounge) -->
+    <section class="section" id="experienceSection">
+      <div class="container">
+        <div class="experience-grid">
+          <div class="experience-content">
+            <span class="section-tag">Sobre Nós</span>
+            <h2>Uma experiência inspirada na Grécia</h2>
+            <div class="ornament" style="justify-content: flex-start;">
+              <div class="ornament-diamond"></div>
+            </div>
+            <p class="experience-text">
+              O <strong>Santorini Lounge</strong> é um refúgio de sofisticação que combina a atmosfera mágica da ilha de Santorini com o requinte da alta gastronomia mediterrânea e coquetelaria autoral.
+            </p>
+            <p class="experience-text">
+              Com linhas arquitetônicas inspiradas na Grécia, tons azul marinho e iluminação noturna acolhedora, proporcionamos momentos inesquecíveis para encontros românticos, celebrações especiais e noites descontraídas ao som de trilhas envolventes.
+            </p>
+
+            <div class="experience-features">
+              <div class="feature-box">
+                <h4>Arquitetura Grega</h4>
+                <p>Arcos brancos, acabamentos sutis e decoração mediterrânea autêntica.</p>
+              </div>
+              <div class="feature-box">
+                <h4>Lounge Noturno</h4>
+                <p>Iluminação cênica e ambientação refinada sob a luz das estrelas.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-image-wrapper">
+            <img src="assets/lounge.png" alt="Ambiente do Santorini Lounge com arcos mediterrâneos" class="experience-img-arch">
+            <div class="experience-badge-floating">
+              <span class="number">4.9★</span>
+              <span class="label">Experiência Gastronômica</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Nossa Gastronomia (Categories Overview) -->
+    <section class="section section-dark" id="gastronomySection">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="section-tag">Sensações Únicas</span>
+          <h2>Nossa Gastronomia</h2>
+          <div class="ornament">
+            <div class="ornament-diamond"></div>
+          </div>
+          <p class="section-desc">
+            Pratos preparados com ingredientes frescos selecionados, azeites de oliveira refinados e a essência do Mediterrâneo.
+          </p>
+        </div>
+
+        <div class="gastronomy-grid">
+          <div class="gastronomy-card" onclick="app.filterMenuCategory('entradas')">
+            <img src="assets/entrada.png" alt="Entradas refinadas">
+            <div class="gastronomy-card-overlay">
+              <h3>Entradas</h3>
+              <p>Tzatziki, Bruschettas & Mezzes</p>
+            </div>
+          </div>
+
+          <div class="gastronomy-card" onclick="app.filterMenuCategory('principais')">
+            <img src="assets/octopus.png" alt="Pratos Principais">
+            <div class="gastronomy-card-overlay">
+              <h3>Pratos Principais</h3>
+              <p>Polvo Grelhado, Moussaka & Frutos do Mar</p>
+            </div>
+          </div>
+
+          <div class="gastronomy-card" onclick="app.filterMenuCategory('drinks')">
+            <img src="assets/drink.png" alt="Drinks Autorais">
+            <div class="gastronomy-card-overlay">
+              <h3>Drinks Autorais</h3>
+              <p>Santorini Sunset, Ouzo & Coquetéis</p>
+            </div>
+          </div>
+
+          <div class="gastronomy-card" onclick="app.filterMenuCategory('sobremesas')">
+            <img src="assets/sobremesa.png" alt="Sobremesas Elegantes">
+            <div class="gastronomy-card-overlay">
+              <h3>Sobremesas</h3>
+              <p>Baklava, Cheesecake & Sorvetes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Cardápio Digital (Interactive Menu) -->
+    <section class="section" id="menuSection">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="section-tag">Sabores que encantam</span>
+          <h2>Cardápio Digital</h2>
+          <div class="ornament">
+            <div class="ornament-diamond"></div>
+          </div>
+          <p class="section-desc">
+            Explore nossa seleção completa de pratos, porções, drinks e sobremesas.
+          </p>
+        </div>
+
+        <!-- Controls: Search & Category Chips -->
+        <div class="menu-controls">
+          <div class="menu-search-wrapper">
+            <svg class="menu-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input type="text" id="menuSearchInput" class="menu-search-input" placeholder="Buscar prato, drink ou ingrediente...">
+          </div>
+
+          <div class="menu-filter-chips" id="menuFilterChips">
+            <button class="filter-chip active" data-category="todos">TODOS</button>
+            <button class="filter-chip" data-category="entradas">ENTRADAS</button>
+            <button class="filter-chip" data-category="principais">PRATOS PRINCIPAIS</button>
+            <button class="filter-chip" data-category="porcoes">PORÇÕES</button>
+            <button class="filter-chip" data-category="sobremesas">SOBREMESAS</button>
+            <button class="filter-chip" data-category="drinks">DRINKS</button>
+            <button class="filter-chip" data-category="bebidas">BEBIDAS</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Items Container -->
+        <div class="menu-items-grid" id="menuItemsContainer">
+          <!-- Rendered via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Cardápio Especial / Evento Ativo -->
+    <section class="section" id="specialEventSection">
+      <div class="container">
+        <div class="special-event-banner" id="specialEventBanner">
+          <div class="special-event-content">
+            <span class="special-badge-active">
+              <span class="pulse-dot"></span> EVENTO ESPECIAL EM DESTAQUE
+            </span>
+            <h3 id="specialEventTitle">Noite do Ouzo & Gastronomia Grega</h3>
+            <div class="special-event-meta">
+              <span id="specialEventDate">📅 25 de Maio, 2026</span>
+              <span id="specialEventTime">⏰ 20:00 às 02:00</span>
+              <span id="specialEventPrice">💳 R$ 190 por pessoa</span>
+            </div>
+
+            <p id="specialEventDesc" style="color: var(--sand); margin-bottom: 20px;">
+              Uma noite inesquecível com menu harmonizado em 4 tempos, coquetéis de Ouzo exclusivos e apresentação musical mediterrânea ao vivo.
+            </p>
+
+            <div class="special-menu-courses" id="specialMenuCourses">
+              <div class="course-row">
+                <span class="course-name">ENTRADA:</span>
+                <span>Tzatziki com Pão Pita & Azeitonas Kalamata</span>
+              </div>
+              <div class="course-row">
+                <span class="course-name">PRINCIPAL:</span>
+                <span>Polvo Grelhado com Fava de Santorini ou Moussaka Tradicional</span>
+              </div>
+              <div class="course-row">
+                <span class="course-name">SOBREMESA:</span>
+                <span>Baklava Crocante de Pistache com Gelato</span>
+              </div>
+              <div class="course-row">
+                <span class="course-name">DRINK:</span>
+                <span>Shot de Ouzo Lesvos Chilled & Santorini Sunset</span>
+              </div>
+            </div>
+
+            <button class="btn-primary btn-gold js-open-booking" data-event="Noite do Ouzo">
+              Reservar Experiência Especial
+            </button>
+          </div>
+
+          <div class="special-event-media">
+            <img src="assets/ouzo_event.png" alt="Noite do Ouzo no Santorini Lounge" class="special-event-img" id="specialEventImg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Eventos & Experiências -->
+    <section class="section section-dark" id="eventsSection">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="section-tag">Agenda Exclusiva</span>
+          <h2>Eventos & Experiências</h2>
+          <div class="ornament">
+            <div class="ornament-diamond"></div>
+          </div>
+          <p class="section-desc">
+            Acompanhe nossas noites temáticas e experiências sensoriais nas montanhas.
+          </p>
+        </div>
+
+        <div class="events-grid" id="eventsGridContainer">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Reservas (Reserve Sua Mesa) -->
+    <section class="section" id="reservationSection">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="section-tag">Garanta Seu Lugar</span>
+          <h2>Reserve Sua Mesa</h2>
+          <div class="ornament">
+            <div class="ornament-diamond"></div>
+          </div>
+          <p class="section-desc">
+            Solicite sua pré-reserva com facilidade. Entraremos em contato via WhatsApp para confirmar seus detalhes.
+          </p>
+        </div>
+
+        <div class="reservation-box">
+          <form id="publicReservationForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="resName">Nome Completo</label>
+                <input type="text" id="resName" class="input-style" placeholder="Seu nome" required>
+              </div>
+
+              <div class="form-group">
+                <label for="resPhone">WhatsApp de Contato</label>
+                <input type="tel" id="resPhone" class="input-style" placeholder="(00) 90000-0000" required>
+              </div>
+
+              <div class="form-group">
+                <label for="resEmail">E-mail</label>
+                <input type="email" id="resEmail" class="input-style" placeholder="seu@email.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="resGuests">Número de Pessoas</label>
+                <select id="resGuests" class="input-style" required>
+                  <option value="2 pessoas">2 Pessoas (Casal)</option>
+                  <option value="4 pessoas">4 Pessoas</option>
+                  <option value="6 pessoas">6 Pessoas</option>
+                  <option value="Grupo grande (8+)">Grupo Grande (8+)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="resDate">Data Desejada</label>
+                <input type="date" id="resDate" class="input-style" required>
+              </div>
+
+              <div class="form-group">
+                <label for="resTime">Horário</label>
+                <select id="resTime" class="input-style" required>
+                  <option value="19:00">19:00 — Sunset Dining</option>
+                  <option value="21:00">21:00 — Starlight Lounge</option>
+                  <option value="23:00">23:00 — Night Drinks</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="resNotes">Observações ou Ocasião Especial (Opcional)</label>
+                <textarea id="resNotes" class="input-style" rows="3" placeholder="Aniversário, pedido de casamento, restrições alimentares..."></textarea>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+              <button type="submit" class="btn-primary" style="width: 100%; max-width: 320px;">
+                Solicitar Reserva
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Galeria Premium -->
+    <section class="section section-dark" id="gallerySection">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="section-tag">Atmosphere & Art</span>
+          <h2>Galeria Santorini</h2>
+          <div class="ornament">
+            <div class="ornament-diamond"></div>
+          </div>
+        </div>
+
+        <div class="gallery-filter" id="galleryFilterChips">
+          <button class="filter-chip active" data-gal-cat="todos">TODOS</button>
+          <button class="filter-chip" data-gal-cat="ambiente">AMBIENTE</button>
+          <button class="filter-chip" data-gal-cat="gastronomia">GASTRONOMIA</button>
+          <button class="filter-chip" data-gal-cat="drinks">DRINKS</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryContainer">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Instagram Section -->
+    <section class="instagram-wrapper">
+      <div class="container">
+        <span class="section-tag">Siga o Santorini</span>
+        <h2 class="instagram-handle">@santorini_lounge_</h2>
+        <p style="color: var(--sand); margin-bottom: 30px;">Acompanhe nossas fotos diárias, novidades e bastidores.</p>
+
+        <a href="https://www.instagram.com/santorini_lounge_/" target="_blank" rel="noopener noreferrer" class="btn-primary btn-gold">
+          Ver Instagram Oficial
+        </a>
+      </div>
+    </section>
+
+    <!-- 11. Localização & Contato -->
+    <section class="section" id="locationSection">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="section-tag">Onde Estamos</span>
+          <h2>Visite o Santorini Lounge</h2>
+          <div class="ornament">
+            <div class="ornament-diamond"></div>
+          </div>
+        </div>
+
+        <div class="location-grid">
+          <div class="location-info-card">
+            <h3>Santorini Lounge</h3>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">Restaurante • Lounge • Experiências</p>
+
+            <div class="location-info-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+              <div>
+                <strong>Endereço</strong>
+                <p>R. Antônia Augusta de Andrade, 236<br>São José, Itabirito - MG, 35450-000</p>
+              </div>
+            </div>
+
+            <div class="location-info-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <div>
+                <strong>Horário de Funcionamento</strong>
+                <p>Terça a Quinta: 18h às 00h<br>Sexta e Sábado: 18h às 02h<br>Domingo: 18h às 23h</p>
+              </div>
+            </div>
+
+            <div class="location-info-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <div>
+                <strong>Contato & Reservas</strong>
+                <p>Instagram: @santorini_lounge_</p>
+              </div>
+            </div>
+
+            <a href="https://maps.app.goo.gl/n4AkkgBSob1tYNWE9" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; margin-top: 10px;">
+              Como Chegar (Google Maps)
+            </a>
+          </div>
+
+          <div style="height: 100%; min-height: 380px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-gold); box-shadow: var(--shadow-premium);">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.766348234608!2d-43.8055!3d-20.2522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDE1JzA3LjkiUyA0M8KwNDgnMTkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1700000000000" 
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 12. Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>SANTORINI LOUNGE</h3>
+          <p>Restaurante & Lounge com estética inspirada na ilha de Santorini. Gastronomia mediterrânea, coquetelaria fina e momentos inesquecíveis.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="#heroSection">Início</a></li>
+            <li><a href="#experienceSection">O Lounge</a></li>
+            <li><a href="#menuSection">Cardápio Digital</a></li>
+            <li><a href="#eventsSection">Eventos</a></li>
+            <li><a href="#gallerySection">Galeria</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Horários</h4>
+          <ul>
+            <li>Terço a Quinta: 18h - 00h</li>
+            <li>Sexta & Sábado: 18h - 02h</li>
+            <li>Domingo: 18h - 23h</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Administração</h4>
+          <ul>
+            <li><a href="#admin" onclick="app.openAdminOverlay()">Painel /admin</a></li>
+            <li><a href="https://www.instagram.com/santorini_lounge_/" target="_blank">Instagram Oficial</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Santorini Lounge. Todos os direitos reservados. Design Editorial Premium.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Imagem ampliada Galeria Santorini">
+    </div>
+  </div>
+
+  <!-- Admin Panel Overlay (/admin) -->
+  <div class="admin-overlay" id="adminOverlay">
+    <div class="admin-header">
+      <h2>Painel Administrativo — Santorini Lounge</h2>
+      <button class="btn-secondary" onclick="app.closeAdminOverlay()" style="border-color: var(--gold-muted); padding: 8px 18px;">
+        Fechar Painel
+      </button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab-btn active" onclick="app.switchAdminTab('menu')">Gerenciar Cardápio</button>
+      <button class="admin-tab-btn" onclick="app.switchAdminTab('events')">Eventos & Cardápios Especiais</button>
+      <button class="admin-tab-btn" onclick="app.switchAdminTab('reservations')">Reservas Recebidas</button>
+    </div>
+
+    <div class="admin-content" id="adminTabContent">
+      <!-- Dynamically filled by app.js -->
+    </div>
+  </div>
+
+  <!-- JS Engine -->
+  <script src="app.js"></script>
+</body>
+
+</html>
