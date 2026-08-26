@@ -1,277 +1,368 @@
-/**
- * Bistrot de Ville - Campos do Jordão
- * Premium Valentine's Day Campaign Interactive Logic
- * Incorporates a premium synthesized audio generator (Web Audio API), 
- * dynamic multi-step booking modal, ambient auto-selectors, scroll reveal and scarcity counter.
- */
+/* ==========================================================================
+   SANTORINI LOUNGE — FRONTEND APPLICATION LOGIC (app.js)
+   ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-
-  // --- 1. Floating WhatsApp Link ---
-  // Managed directly via static HTML anchor link, no custom audio synthesis required.
-
-  // --- Header Scroll State ---
-  const siteHeader = document.querySelector('header');
-
-  function updateHeaderState() {
-    if (!siteHeader) return;
-    siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+// Initial Seed Data for Menu Items
+const INITIAL_MENU_ITEMS = [
+  {
+    id: 'm1',
+    category: 'entradas',
+    name: 'Tzatziki com Pão Pita Artesanal',
+    price: 28.00,
+    badge: 'Clássico Grego',
+    description: 'Iogurte grego artesanal, pepino crocante, alho suave, azeite extra virgem grego e hortelã fresca.',
+    image: 'assets/moussaka.png',
+    is_active: true
+  },
+  {
+    id: 'm2',
+    category: 'entradas',
+    name: 'Bruschetta Greca com Queijo Feta',
+    price: 32.00,
+    badge: 'Mais Pedido',
+    description: 'Pão de fermentação natural grelhado, tomates assados no azeite, queijo Feta DOP, azeitonas Kalamata e orégano.',
+    image: 'assets/moussaka.png',
+    is_active: true
+  },
+  {
+    id: 'm3',
+    category: 'entradas',
+    name: 'Polvo Grelhado à Moda Santorini',
+    price: 48.00,
+    badge: 'Destaque Chef',
+    description: 'Tentáculos de polvo marinado grelhado no carvão, servido com purê de fava amarela, limão siciliano e alcaparras.',
+    image: 'assets/polvo_grelhado.png',
+    is_active: true
+  },
+  {
+    id: 'm4',
+    category: 'pratos',
+    name: 'Moussaka Tradicional Gratada',
+    price: 78.00,
+    badge: 'Especialidade',
+    description: 'Camadas intercaladas de berinjela grelhada, batata, ragù de carne temperado com especiarias mediterrâneas e béchamel cremoso.',
+    image: 'assets/moussaka.png',
+    is_active: true
+  },
+  {
+    id: 'm5',
+    category: 'pratos',
+    name: 'Risoto de Limão Siciliano com Camarões',
+    price: 84.00,
+    badge: 'Imperdível',
+    description: 'Arroz arbóreo cremoso aromatizado com limão siciliano grelhado, camarões rosa grandes grelhados e finalizado com Feta.',
+    image: 'assets/polvo_grelhado.png',
+    is_active: true
+  },
+  {
+    id: 'm6',
+    category: 'pratos',
+    name: 'Filé Mignon ao Molho de Ervas',
+    price: 89.00,
+    badge: 'Premium',
+    description: 'Medalhão de filé mignon grelhado na crosta de pimentas e molho demi-glace aromatizado com alecrim, acompanhado de batatas rústicas.',
+    image: 'assets/moussaka.png',
+    is_active: true
+  },
+  {
+    id: 'm7',
+    category: 'porcoes',
+    name: 'Meze Platter Mediterrâneo',
+    price: 64.00,
+    badge: 'Para Compartilhar',
+    description: 'Seleção artesanal de Tzatziki, Hommus, Babaganoush, azeitonas marroquinas, falafel crocante e pão pita quente.',
+    image: 'assets/polvo_grelhado.png',
+    is_active: true
+  },
+  {
+    id: 'm8',
+    category: 'sobremesas',
+    name: 'Baklava Tradicional Folhada',
+    price: 28.00,
+    badge: 'Sobremesa Guia',
+    description: 'Massa folhada artesanal recheada com nozes, pistache moído, aromatizada com calda de mel e água de azahar.',
+    image: 'assets/baklava.png',
+    is_active: true
+  },
+  {
+    id: 'm9',
+    category: 'sobremesas',
+    name: 'Cheesecake de Frutas Vermelhas Grega',
+    price: 26.00,
+    badge: 'Refrescante',
+    description: 'Base de biscoito amanteigado, creme leve à base de iogurte grego e coulis artesanal de frutas vermelhas.',
+    image: 'assets/baklava.png',
+    is_active: true
+  },
+  {
+    id: 'm10',
+    category: 'sobremesas',
+    name: 'Sorvete Grego com Mel e Pistache',
+    price: 24.00,
+    badge: 'Autoral',
+    description: 'Sorvete artesanal de iogurte grego cremoso, mel puro orgânico e praliné de pistaches crocantes.',
+    image: 'assets/baklava.png',
+    is_active: true
+  },
+  {
+    id: 'm11',
+    category: 'drinks',
+    name: 'Santorini Sunset',
+    price: 36.00,
+    badge: 'Signature',
+    description: 'Gin premium, licor Aperol, xarope artesanal de maracujá, citrus infusionado com alecrim e espuma leve.',
+    image: 'assets/santorini_sunset.png',
+    is_active: true
+  },
+  {
+    id: 'm12',
+    category: 'drinks',
+    name: 'Ouzo Lemonade Refresh',
+    price: 32.00,
+    badge: 'Tradição',
+    description: 'Autêntico Ouzo grego, suco de limão siciliano fresco, xarope de hortelã, água com gás e gelo cristalino.',
+    image: 'assets/noite_ouzo.png',
+    is_active: true
+  },
+  {
+    id: 'm13',
+    category: 'drinks',
+    name: 'Blue Aegean Cocktail',
+    price: 34.00,
+    badge: 'Visual Único',
+    description: 'Vodka refinada, curaçau blue, água de coco, infusão de capim-santo e lâmina de limão taiti.',
+    image: 'assets/blue_aegean.png',
+    is_active: true
+  },
+  {
+    id: 'm14',
+    category: 'bebidas',
+    name: 'Vinho Branco Grego Assyrtiko 750ml',
+    price: 140.00,
+    badge: 'Carta Especial',
+    description: 'Vinho de acidez vibrante, notas minerais e cítricas produzidas na região vulcânica de Santorini.',
+    image: 'assets/noite_ouzo.png',
+    is_active: true
   }
+];
 
-  updateHeaderState();
-  window.addEventListener('scroll', updateHeaderState, { passive: true });
+// Initial Special Event State
+const INITIAL_SPECIAL_EVENT = {
+  is_active: true,
+  title: 'NOITE DO OUZO',
+  subtitle: 'Uma noite especial com pratos selecionados, drinks exclusivos e muita música.',
+  eventDate: '25 DE MAIO, 2026',
+  eventTime: '20H ÀS 02H',
+  price: 180.00,
+  image: 'assets/noite_ouzo.png'
+};
 
-
-  // --- 2. Interactive Multi-Step Reservation Modal ---
-  const modal = document.getElementById('bookingModal');
-  const openModalBtns = document.querySelectorAll('.js-open-modal');
-  const scrollToAmbientsBtns = document.querySelectorAll('.js-scroll-to-ambients');
-  const closeModalBtn = document.getElementById('closeModal');
-  const formSteps = document.querySelectorAll('.form-step');
-  const progressSteps = document.querySelectorAll('.progress-step');
-  const btnNext = document.getElementById('btnNext');
-  const btnBack = document.getElementById('btnBack');
-  const modalFooter = document.getElementById('modalFooter');
-
-  if (modal) {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
+// Initialize Application Data Store in localStorage
+function initializeDataStore() {
+  if (!localStorage.getItem('santorini_menu_items')) {
+    localStorage.setItem('santorini_menu_items', JSON.stringify(INITIAL_MENU_ITEMS));
   }
-
-  let currentStep = 1;
-  const totalSteps = 3;
-
-  // Selected reservation state
-  const bookingState = {
-    ambient: 'Belle Époque (Interno)',
-    date: '12 de Junho - Jantar Especial',
-    time: '19:30',
-    guests: '2 pessoas (Casal)',
-    name: '',
-    phone: '',
-    wishes: ''
-  };
-
-  // Open Modal
-  function openBookingModal(preselectedAmbient = '') {
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-
-    if (preselectedAmbient) {
-      bookingState.ambient = preselectedAmbient;
-      // Highlight in the selector UI
-      const ambientOptions = document.querySelectorAll('.ambient-option');
-      ambientOptions.forEach(opt => {
-        if (opt.dataset.ambient === preselectedAmbient) {
-          opt.classList.add('selected');
-        } else {
-          opt.classList.remove('selected');
-        }
-      });
-    }
-    goToStep(1);
+  if (!localStorage.getItem('santorini_special_event')) {
+    localStorage.setItem('santorini_special_event', JSON.stringify(INITIAL_SPECIAL_EVENT));
   }
+}
 
-  // Close Modal
-  function closeBookingModal() {
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+// Get Menu Items from LocalStorage
+function getMenuItems() {
+  const data = localStorage.getItem('santorini_menu_items');
+  return data ? JSON.parse(data) : INITIAL_MENU_ITEMS;
+}
 
-  openModalBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const selectedAmbient = btn.getAttribute('data-ambient') || '';
-      const message = selectedAmbient
-        ? `Olá! Gostaria de reservar uma mesa para o jantar especial de Dia dos Namorados no Bistrot de Ville. Ambiente desejado: ${selectedAmbient}.`
-        : 'Olá! Gostaria de reservar uma mesa para o jantar especial de Dia dos Namorados no Bistrot de Ville.';
-      window.location.href = `https://wa.me/5512997421206?text=${encodeURIComponent(message)}`;
-    });
+// Format Price to BRL
+function formatPrice(val) {
+  return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+}
+
+// Render Menu Cards
+function renderMenu(filterCategory = 'todos') {
+  const container = document.getElementById('menuItemsGrid');
+  if (!container) return;
+
+  const items = getMenuItems();
+  const filtered = items.filter(item => {
+    if (!item.is_active) return false;
+    if (filterCategory === 'todos') return true;
+    return item.category === filterCategory;
   });
 
-  scrollToAmbientsBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.getElementById('ambientSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-  closeModalBtn.addEventListener('click', closeBookingModal);
-
-  // Close on backdrop click
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeBookingModal();
-    }
-  });
-
-  // Handle ambient option click in step 1
-  const ambientOptions = document.querySelectorAll('.ambient-option');
-  ambientOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      ambientOptions.forEach(opt => opt.classList.remove('selected'));
-      option.classList.add('selected');
-      bookingState.ambient = option.dataset.ambient;
-    });
-  });
-
-  // Stepper logic
-  function goToStep(step) {
-    currentStep = step;
-
-    // Update step visibility
-    formSteps.forEach(stepEl => {
-      stepEl.classList.remove('active');
-      if (parseInt(stepEl.dataset.step) === step) {
-        stepEl.classList.add('active');
-      }
-    });
-
-    // Update progress bar
-    progressSteps.forEach((progressEl, index) => {
-      const stepIndex = index + 1;
-      progressEl.classList.remove('active', 'completed');
-      if (stepIndex === step) {
-        progressEl.classList.add('active');
-      } else if (stepIndex < step) {
-        progressEl.classList.add('completed');
-      }
-    });
-
-    // Footer actions
-    if (step === 1) {
-      btnBack.style.display = 'none';
-      btnNext.innerText = 'Próximo Passo';
-    } else if (step === 2) {
-      btnBack.style.display = 'block';
-      btnNext.innerText = 'Confirmar Reserva';
-    } else if (step === 3) {
-      // Success step: Hide standard footer buttons
-      modalFooter.style.display = 'none';
-
-      // Update receipt summary info dynamically
-      document.getElementById('receiptName').innerText = bookingState.name;
-      document.getElementById('receiptPhone').innerText = bookingState.phone;
-      document.getElementById('receiptAmbient').innerText = bookingState.ambient;
-      document.getElementById('receiptTime').innerText = bookingState.time;
-    }
-  }
-
-  function validateStep(step) {
-    if (step === 1) {
-      // Save date and time selection
-      bookingState.date = document.getElementById('bookingDate').value;
-      bookingState.time = document.getElementById('bookingTime').value;
-      bookingState.guests = document.getElementById('bookingGuests').value;
-      return true;
-    }
-
-    if (step === 2) {
-      const nameInput = document.getElementById('userName');
-      const phoneInput = document.getElementById('userPhone');
-
-      if (!nameInput.value.trim()) {
-        alert('Por favor, informe seu nome completo para a reserva.');
-        nameInput.focus();
-        return false;
-      }
-
-      if (!phoneInput.value.trim()) {
-        alert('Por favor, forneça um número de WhatsApp para confirmação.');
-        phoneInput.focus();
-        return false;
-      }
-
-      bookingState.name = nameInput.value;
-      bookingState.phone = phoneInput.value;
-      bookingState.wishes = document.getElementById('userWishes').value;
-      return true;
-    }
-
-    return true;
-  }
-
-  btnNext.addEventListener('click', () => {
-    if (validateStep(currentStep)) {
-      if (currentStep < totalSteps) {
-        goToStep(currentStep + 1);
-      }
-    }
-  });
-
-  btnBack.addEventListener('click', () => {
-    if (currentStep > 1) {
-      goToStep(currentStep - 1);
-    }
-  });
-
-  // --- 4. Scroll Reveal Animations ---
-  const revealElements = document.querySelectorAll('.reveal');
-
-  function checkReveal() {
-    const triggerBottom = window.innerHeight * 0.85;
-
-    revealElements.forEach(el => {
-      const elTop = el.getBoundingClientRect().top;
-      if (elTop < triggerBottom) {
-        el.classList.add('active');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', checkReveal);
-  // Run once on load to reveal hero or top elements
-  checkReveal();
-
-  // --- 5. Falling Purple Petals Animation ---
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isSmallScreen = window.matchMedia('(max-width: 600px)').matches;
-
-  if (prefersReducedMotion || isSmallScreen) {
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted);">
+        <p>Nenhum item disponível nesta categoria no momento.</p>
+      </div>
+    `;
     return;
   }
 
-  const petalsContainer = document.createElement('div');
-  petalsContainer.id = 'petalsContainer';
-  document.body.appendChild(petalsContainer);
+  container.innerHTML = filtered.map(item => `
+    <article class="menu-item-card" data-category="${item.category}">
+      <div class="menu-item-img-wrapper">
+        <img src="${item.image || 'assets/moussaka.png'}" alt="${item.name}" class="menu-item-img" loading="lazy">
+        ${item.badge ? `<span class="menu-item-badge">${item.badge}</span>` : ''}
+      </div>
+      <div class="menu-item-info">
+        <div class="menu-item-header">
+          <h3 class="menu-item-name">${item.name}</h3>
+          <span class="menu-item-price">${formatPrice(item.price)}</span>
+        </div>
+        <p class="menu-item-description">${item.description}</p>
+      </div>
+    </article>
+  `).join('');
+}
 
-  const petalColors = ['#6a9770ff', '#548352ff', '#76a670ff', '#6F654F']; // Harmony of romantic tones
+// Category Filter Listener
+function setupMenuFilters() {
+  const filterBtns = document.querySelectorAll('.menu-filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      renderMenu(filter);
+    });
+  });
+}
 
-  function createPetal() {
-    const petal = document.createElement('div');
-    petal.classList.add('petal');
+// Sync Special Event Section with localStorage state
+function syncSpecialEventState() {
+  const eventContainer = document.getElementById('specialEventContainer');
+  if (!eventContainer) return;
 
-    // Randomize initial position and size
-    const size = Math.random() * 15 + 10; // between 10px and 25px
-    petal.style.width = `${size}px`;
-    petal.style.height = `${size}px`;
-    petal.style.left = `${Math.random() * 100}vw`;
+  const eventData = JSON.parse(localStorage.getItem('santorini_special_event') || JSON.stringify(INITIAL_SPECIAL_EVENT));
 
-    // Randomize rotation
-    petal.style.transform = `rotate(${Math.random() * 360}deg)`;
+  if (!eventData.is_active) {
+    eventContainer.style.display = 'none';
+  } else {
+    eventContainer.style.display = 'block';
+    const titleEl = document.getElementById('eventTitle');
+    const subtitleEl = document.getElementById('eventSubtitle');
+    const dateEl = document.getElementById('eventDate');
+    const timeEl = document.getElementById('eventTime');
 
-    // Choose random romantic gradient tone
-    const color1 = petalColors[Math.floor(Math.random() * petalColors.length)];
-    const color2 = '#131010'; // Blend with black wine
-    petal.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
-
-    // Randomize duration and delay
-    const duration = Math.random() * 6 + 6; // between 6s and 12s
-    petal.style.animationDuration = `${duration}s`;
-
-    // Remove petal after animation completes
-    setTimeout(() => {
-      petal.remove();
-    }, duration * 1000);
-
-    petalsContainer.appendChild(petal);
+    if (titleEl) titleEl.innerText = eventData.title;
+    if (subtitleEl) subtitleEl.innerText = eventData.subtitle;
+    if (dateEl) dateEl.innerText = eventData.eventDate;
+    if (timeEl) timeEl.innerText = eventData.eventTime;
   }
+}
 
-  // Initial burst of petals when landing page is loaded
-  for (let i = 0; i < 20; i++) {
-    setTimeout(createPetal, Math.random() * 2000); // spread initial burst over 2 seconds
+// Lightbox Modal Setup
+function setupLightbox() {
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  if (!lightboxModal) return;
+
+  document.querySelectorAll('[data-lightbox]').forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-lightbox');
+      const title = item.getAttribute('data-title') || '';
+      const caption = item.getAttribute('data-caption') || '';
+
+      lightboxImg.src = src;
+      lightboxTitle.innerText = title;
+      lightboxCaption.innerText = caption;
+
+      lightboxModal.classList.add('open');
+      lightboxModal.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  const closeFn = () => {
+    lightboxModal.classList.remove('open');
+    lightboxModal.setAttribute('aria-hidden', 'true');
+  };
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeFn);
+
+  lightboxModal.addEventListener('click', (e) => {
+    if (e.target === lightboxModal) closeFn();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal.classList.contains('open')) {
+      closeFn();
+    }
+  });
+}
+
+// Handle Reservation Form Submit
+function setupReservationForm() {
+  const form = document.getElementById('reservationForm');
+  const successMsg = document.getElementById('reservationSuccessMessage');
+
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const reservation = {
+      id: 'res_' + Date.now(),
+      name: document.getElementById('resName').value,
+      phone: document.getElementById('resPhone').value,
+      email: document.getElementById('resEmail').value,
+      date: document.getElementById('resDate').value,
+      time: document.getElementById('resTime').value,
+      guests: document.getElementById('resGuests').value,
+      notes: document.getElementById('resNotes').value,
+      created_at: new Date().toISOString(),
+      status: 'pendente'
+    };
+
+    // Store in localStorage
+    const existing = JSON.parse(localStorage.getItem('santorini_reservations') || '[]');
+    existing.unshift(reservation);
+    localStorage.setItem('santorini_reservations', JSON.stringify(existing));
+
+    form.style.display = 'none';
+    if (successMsg) successMsg.style.display = 'block';
+  });
+}
+
+// Navbar Scroll Effect & Mobile Drawer
+function setupNavigation() {
+  const navbar = document.getElementById('navbar');
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('open');
+      });
+    });
   }
+}
 
-  // Continuous slow drift of falling petals
-  setInterval(createPetal, 450);
+// Initialize on DOM Ready
+document.addEventListener('DOMContentLoaded', () => {
+  initializeDataStore();
+  renderMenu('todos');
+  setupMenuFilters();
+  syncSpecialEventState();
+  setupLightbox();
+  setupReservationForm();
+  setupNavigation();
 });

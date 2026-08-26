@@ -1,550 +1,611 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Celebre o amor no Bistrot de Ville em Campos do Jordão. Jantar exclusivo de Dia dos Namorados com menu sofisticado francês, lareiras ao ar livre e ambientes encantadores. Garanta sua mesa.">
-  <meta name="keywords"
-    content="Bistrot de Ville, Campos do Jordão, Dia dos Namorados, Jantar Romântico, Restaurante Francês, Jantar de Casal, Reservas Bistrô">
-  <meta name="author" content="Bistrot de Ville">
-  <title>Dia dos Namorados no Bistrot de Ville — Campos do Jordão | Jantar Romântico Premium</title>
+  <title>Santorini Lounge | Restaurante & Lounge</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Santorini Lounge — Restaurante & Lounge mediterrâneo em Itabirito-MG. Gastronomia autoral, cocktails exclusivos, arquitetura grega e ambiente sofisticado.">
+  <meta name="keywords" content="Santorini Lounge, Restaurante Grego, Lounge Itabirito, Gastronomia Mediterrânea, Jantar Romântico, Drinks Autorais">
+  <meta name="author" content="Santorini Lounge">
+  
+  <meta property="og:title" content="Santorini Lounge | Restaurante & Lounge">
+  <meta property="og:description" content="Vivencie a sofisticação da alta gastronomia mediterrânea e lounge inspirado na ilha de Santorini.">
+  <meta property="og:image" content="assets/hero_santorini.png">
+  <meta property="og:type" content="website">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍷</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
 
-  <!-- CSS Stylesheet -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-  <!-- 1. Floating WhatsApp Contact Widget -->
-  <a href="https://wa.me/5512997421206?text=Olá! Gostaria de reservar uma mesa para o jantar especial de Dia dos Namorados no Bistrot de Ville."
-    class="whatsapp-widget" target="_blank" rel="noopener noreferrer" aria-label="Reservar mesa via WhatsApp"
-    id="whatsappFloatingBtn">
-    <svg class="whatsapp-icon" viewBox="0 0 24 24">
-      <path
-        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.714-1.465L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.63-1.023-5.101-2.887-6.967a9.741 9.741 0 0 0-6.972-2.883c-5.433 0-9.854 4.417-9.858 9.853-.002 2.062.54 3.738 1.493 5.34l-.988 3.606 3.692-.969zm11.233-6.993c-.3-.149-1.772-.875-2.046-.975-.274-.1-.474-.149-.674.15-.2.299-.774.975-.949 1.174-.175.199-.349.224-.649.075-.3-.15-1.265-.466-2.41-1.487-.893-.796-1.495-1.778-1.67-2.078-.175-.3-.018-.462.13-.61.134-.133.3-.349.449-.524.149-.175.199-.299.299-.499.1-.2.05-.375-.025-.524-.075-.15-.674-1.622-.924-2.224-.244-.589-.493-.509-.674-.518-.175-.008-.375-.01-.575-.01-.2 0-.524.075-.798.374-.274.3-.1.774-.1 1.623 0 .85.619 1.67.706 1.799.088.13 1.218 1.861 2.951 2.61.412.178.734.284.984.364.414.133.79.115 1.089.07.332-.05 1.772-.724 2.022-1.399.25-.674.25-1.248.175-1.398-.075-.149-.274-.249-.574-.398z" />
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/5531999999999?text=Olá!%20Gostaria%20de%20reservar%20uma%20mesa%20no%20Santorini%20Lounge." 
+     target="_blank" rel="noopener noreferrer" class="btn-primary" 
+     style="position: fixed; bottom: 28px; right: 28px; z-index: 990; border-radius: 9999px; padding: 14px 24px; box-shadow: var(--shadow-luxury);"
+     id="whatsappBtn">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.714-1.465L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.63-1.023-5.101-2.887-6.967a9.741 9.741 0 0 0-6.972-2.883c-5.433 0-9.854 4.417-9.858 9.853-.002 2.062.54 3.738 1.493 5.34l-.988 3.606 3.692-.969z"/>
     </svg>
-    <span class="whatsapp-text">Reservar no WhatsApp</span>
+    Reservar no WhatsApp
   </a>
 
-  <!-- 2. Header & Navigation -->
-  <header>
-    <div class="container">
-      <div class="logo">
-        Bistrot de Ville
-        <span>Campos do Jordão</span>
-      </div>
-      <nav class="main-nav" aria-label="Navegação principal">
-        <a href="#heroSection">Início</a>
-        <a href="#ambienteSection">Ambiente</a>
-        <a href="#menuSection">Menu</a>
-        <a href="#ambientSection">Reservar</a>
+  <!-- Header / Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-main">SANTORINI</span>
+        <span class="logo-sub">LOUNGE</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link active">Início</a></li>
+          <li><a href="#lounge" class="nav-link">O Lounge</a></li>
+          <li><a href="#gastronomia" class="nav-link">Gastronomia</a></li>
+          <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+          <li><a href="#eventos" class="nav-link">Eventos</a></li>
+          <li><a href="#galeria" class="nav-link">Galeria</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
       </nav>
-      <button class="btn-nav-reserve js-open-modal" id="navReserveBtn" data-ambient="Belle Époque (Interno)">
-        Reservar Mesa
-      </button>
+
+      <div class="nav-actions">
+        <a href="#reservas" class="btn-primary" id="navReserveBtn">Reservar</a>
+        <div class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- 3. Hero Section (First Fold) -->
-  <section class="hero" id="heroSection">
-    <picture style="width: 100%; display: flex; justify-content: center;">
-      <source media="(min-width: 768px)" srcset="assets/optimized/hero-poster-desktop.jpg">
-      <img src="assets/optimized/hero-poster.jpg" alt="Jantar Especial Dia dos Namorados em Campos do Jordão" class="hero-poster">
-    </picture>
-  </section>
-
-  <!-- Instagram Call to Action -->
-  <div class="instagram-cta-wrapper">
-    <div class="container">
-      <a href="https://instagram.com/bistrot.deville" target="_blank" rel="noopener noreferrer" class="instagram-link">
-        <svg class="instagram-icon" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-        </svg>
-        Siga-nos no Instagram @bistrot.deville
-      </a>
-    </div>
+  <!-- Mobile Drawer Navigation -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-list">
+      <li><a href="#hero" class="nav-link mobile-link">Início</a></li>
+      <li><a href="#lounge" class="nav-link mobile-link">O Lounge</a></li>
+      <li><a href="#gastronomia" class="nav-link mobile-link">Gastronomia</a></li>
+      <li><a href="#cardapio" class="nav-link mobile-link">Cardápio</a></li>
+      <li><a href="#eventos" class="nav-link mobile-link">Eventos</a></li>
+      <li><a href="#galeria" class="nav-link mobile-link">Galeria</a></li>
+      <li><a href="#contato" class="nav-link mobile-link">Contato</a></li>
+      <li><a href="#reservas" class="btn-primary mobile-link" style="margin-top: 20px;">Reservar Mesa</a></li>
+    </ul>
   </div>
 
-  <!-- 4. "Escolha seu Ambiente" Section -->
-  <section class="section section-ambients reveal" id="ambientSection">
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <img src="assets/hero_santorini.png" alt="Ambiente Santorini Lounge" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <span class="hero-tag">Bem-Vindo ao</span>
+      <h1 class="hero-title">SANTORINI LOUNGE</h1>
+      <p class="hero-subtitle">Gastronomia • Lounge • Experiência — Sabores que te levam para os melhores momentos.</p>
+      <div class="hero-ctas">
+        <a href="#reservas" class="btn-primary" id="heroReserveBtn">Reservar Mesa</a>
+        <a href="#cardapio" class="btn-secondary" id="heroMenuBtn">Ver Cardápio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O Lounge / Experiência Section -->
+  <section class="section-experience" id="lounge">
     <div class="container">
-      <div class="section-title-wrapper">
-        <span class="section-tag">A Atmosfera Perfeita</span>
-        <h2>Escolha seu ambiente</h2>
-        <div class="ornament">
-          <div class="ornament-diamond"></div>
+      <div class="experience-grid">
+        <div class="experience-image-container">
+          <img src="assets/lounge_experience.png" alt="Arquitetura e Lounge Santorini" class="experience-img-arch">
+          <div class="experience-badge">
+            <div class="badge-title">Santorini Experience</div>
+            <p style="font-size: 0.8rem; color: var(--areia); margin-top: 4px;">Ambiente exclusivo & intimista</p>
+          </div>
         </div>
-        <p class="section-desc">
-          Escolha entre os dois ambientes encantadores
+
+        <div class="experience-content">
+          <span class="section-tag">A Experiência</span>
+          <h2>Uma Experiência Inspirada na Grécia</h2>
+          <p class="experience-text">
+            O Santorini Lounge nasce para proporcionar uma imersão sensorial única nas montanhas. Com arquitetura inspirada nas charmosas vilas da ilha grega de Santorini, unimos paredes de acabamento artesanal off-white, arcos arredondados e a iluminação noturna envolvente em tom azul marinho profundo.
+          </p>
+          <p class="experience-text">
+            Cada espaço foi minuciosamente desenhado para quem busca encontros memoráveis, jantares românticos e alta gastronomia acompanhada por coquetelaria autoral premium.
+          </p>
+
+          <div class="experience-features">
+            <div class="feature-box">
+              <h4>Alta Gastronomia</h4>
+              <p>Ingredientes frescos mediterrâneos e técnicas contemporâneas.</p>
+            </div>
+            <div class="feature-box">
+              <h4>Lounge Noturno</h4>
+              <p>Música envolvente, iluminação cenográfica e sofisticação.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nossa Gastronomia Section Showcase -->
+  <section class="section-gastronomy" id="gastronomia">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Proposta Culinária</span>
+        <h2 class="section-title light">Nossa Gastronomia</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <p class="section-desc light">Uma celebração dos ingredientes nobres do Mediterrâneo apresentados com requinte editorial.</p>
+      </div>
+
+      <div class="gastronomy-categories-grid">
+        <article class="gastro-card">
+          <img src="assets/moussaka.png" alt="Entradas Grega" class="gastro-card-img">
+          <div class="gastro-card-content">
+            <span class="gastro-card-tag">1º Tempo</span>
+            <h3 class="gastro-card-title">Entradas Elegantes</h3>
+            <p class="gastro-card-desc">Mezes artesanais, Tzatziki fresco, bruschettas mediterrâneas e polvo grelhado no carvão.</p>
+          </div>
+        </article>
+
+        <article class="gastro-card">
+          <img src="assets/polvo_grelhado.png" alt="Pratos Principais" class="gastro-card-img">
+          <div class="gastro-card-content">
+            <span class="gastro-card-tag">2º Tempo</span>
+            <h3 class="gastro-card-title">Pratos Principais</h3>
+            <p class="gastro-card-desc">Moussaka autêntica gratada, risoto de limão siciliano com camarões e medalhões nobres.</p>
+          </div>
+        </article>
+
+        <article class="gastro-card">
+          <img src="assets/baklava.png" alt="Sobremesas" class="gastro-card-img">
+          <div class="gastro-card-content">
+            <span class="gastro-card-tag">3º Tempo</span>
+            <h3 class="gastro-card-title">Sobremesas Autorais</h3>
+            <p class="gastro-card-desc">Baklava folhada com mel orgânico e sorvete cremoso de iogurte grego com pistache.</p>
+          </div>
+        </article>
+
+        <article class="gastro-card">
+          <img src="assets/santorini_sunset.png" alt="Drinks Autorais" class="gastro-card-img">
+          <div class="gastro-card-content">
+            <span class="gastro-card-tag">Mixologia</span>
+            <h3 class="gastro-card-title">Cocktails Exclusivos</h3>
+            <p class="gastro-card-desc">Dracmas de sabor com o clássico Ouzo, infusionados com botânicos e apresentação impecável.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Event Highlight Banner (Cardápio Especial) -->
+  <section class="container" style="margin-top: 80px;" id="specialEventContainer">
+    <div class="special-event-callout">
+      <div class="special-event-info">
+        <span class="event-tag">Cardápio Especial Ativo</span>
+        <h3 id="eventTitle">NOITE DO OUZO</h3>
+        <p style="color: var(--areia); font-size: 0.95rem; margin-bottom: 16px;" id="eventSubtitle">
+          Uma noite especial com pratos selecionados, drinks exclusivos e muita música.
         </p>
-      </div>
 
-      <div class="ambient-grid">
-        <!-- Ambient 1: Belle Époque Classique -->
-        <article class="ambient-card" id="ambientCardInternal">
-          <div class="ambient-image-wrapper">
-            <span class="ambient-badge">Romance Clássico</span>
-            <img loading="lazy" decoding="async" src="assets/optimized/salao-belle-epoque.jpg"
-              alt="Salão interno Belle Époque do Bistrot de Ville com lareira, lustres e mesas românticas"
-              class="ambient-img">
-          </div>
-          <div class="ambient-content">
-            <h3>Ambiente Interno</h3>
-            <p class="ambient-description">
-              Com decoração da Belle Époque Francesa.
-            </p>
-            <button class="btn-secondary js-open-modal" data-ambient="Belle Époque (Interno)" id="reserveInternalBtn">
-              Escolher Salão Interno
-              <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </article>
-
-        <!-- Ambient 2: Garden Cozy Terrace with Fireplaces -->
-        <article class="ambient-card" id="ambientCardExternal">
-          <div class="ambient-image-wrapper">
-            <span class="ambient-badge">Romance Sob as Estrelas</span>
-            <img loading="lazy" decoding="async" src="assets/optimized/novo-jardim-externo.jpg"
-              alt="Jardim com lareira do Bistrot de Ville ao pôr do sol, luzes e flores" class="ambient-img">
-          </div>
-          <div class="ambient-content">
-            <h3>Jardim Externo</h3>
-            <p class="ambient-description">
-              Com mesa em volta de lareiras nas montanhas de Campos do Jordão. Cercado por araucárias centenárias,
-              coelhos e tela de cinema com clipes românticos.
-            </p>
-            <button class="btn-secondary js-open-modal" data-ambient="Jardim com Lareira (Externo)"
-              id="reserveExternalBtn">
-              Escolher Jardim Externo
-              <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Aba Ambiente: Galeria de Imagens -->
-  <section class="section section-ambiente-gallery reveal" id="ambienteSection">
-    <div class="container">
-      <div class="section-title-wrapper">
-        <h2>Restaurante mais charmoso e romântico de Campos do Jordão</h2>
-      </div>
-
-      <div class="ambiente-gallery">
-        <figure class="ambiente-photo ambiente-photo-large">
-          <img loading="lazy" decoding="async" src="assets/optimized/ambiente-jardim.jpg"
-            alt="Jardim do Bistrot de Ville ao pôr do sol com luzes, flores e lareira central">
-          <figcaption>Jardim iluminado com tela de cinema</figcaption>
-        </figure>
-        <figure class="ambiente-photo">
-          <img loading="lazy" decoding="async" src="assets/optimized/ambiente-lareira.jpg"
-            alt="Casal brindando vinho em poltronas no jardim com lareira acesa">
-          <figcaption>a Belle Époque Francesa</figcaption>
-        </figure>
-        <figure class="ambiente-photo">
-          <img loading="lazy" decoding="async" src="assets/optimized/casal-jardim.jpg"
-            alt="Área externa romântica do Bistrot de Ville com casal, flores e luzes">
-          <figcaption>Romance entre flores e luzes</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Menu Especial de Dia dos Namorados -->
-  <section class="section section-menu reveal" id="menuSection">
-    <div class="container">
-      <div class="section-title-wrapper">
-        <span class="section-tag">Experiência Gastronômica</span>
-        <h2>Menu Dia dos Namorados</h2>
-        <div class="ornament">
-          <div class="ornament-diamond"></div>
-        </div>
-      </div>
-      <p class="menu-subtitle">A gastronomia é assinada por chefs formados pela prestigiada escola Le Cordon Bleu,
-        proporcionando um menu exclusivo de fondue em 3 tempos:</p>
-
-      <div class="menu-region">
-        <div class="menu-region-header">
-          <span>Opção 1</span>
-          <div>
-            <h3>Menu em 3 tempos</h3>
-            <p>R$ 250 + taxa por pessoa</p>
-          </div>
+        <div class="special-event-details">
+          <span>📅 <strong id="eventDate">25 DE MAIO, 2026</strong></span>
+          <span>⏰ <strong id="eventTime">20H ÀS 02H</strong></span>
+          <span>📍 <strong>Santorini Lounge</strong></span>
         </div>
 
-        <div class="menu-grid">
-          <!-- 1. Entrada (1º Tempo) -->
-          <article class="menu-card" id="menuCardEntrada">
-            <div class="menu-image-wrapper">
-              <span class="menu-course-badge">Opção 1 - Entrada</span>
-              <img loading="lazy" decoding="async" src="assets/optimized/entrada.jpg"
-                alt="Batata cremosa Provençal servida com tomates cereja assados" class="menu-img">
-            </div>
-            <div class="menu-content">
-              <span class="menu-course-tag">L'Entrée</span>
-              <h3>Burrata cremosa Provençal</h3>
-            </div>
-          </article>
-
-          <!-- 2. Opção de Peixe -->
-          <article class="menu-card" id="menuCardSalmao">
-            <div class="menu-image-wrapper">
-              <span class="menu-course-badge">Opção 1 - Principal</span>
-              <img loading="lazy" decoding="async" src="assets/optimized/prato-salmao.jpg"
-                alt="Prato de salmão servido com guarnições delicadas" class="menu-img">
-            </div>
-            <div class="menu-content">
-              <span class="menu-course-tag">Le Poisson</span>
-              <h3>Salmão ao molho champagne com Risoto de alho poró</h3>
-            </div>
-          </article>
-
-          <!-- 3. Opção de Massa -->
-          <article class="menu-card" id="menuCardRagu">
-            <div class="menu-image-wrapper">
-              <span class="menu-course-badge">Opção 1 - Principal</span>
-              <img loading="lazy" decoding="async" src="assets/optimized/prato-ragu.jpg"
-                alt="Massa artesanal ao ragu servida em prato refinado" class="menu-img">
-            </div>
-            <div class="menu-content">
-              <span class="menu-course-tag">La Pâte</span>
-              <h3>Ragu de carne bordelaise (molho francês à base de vinho) com fettuccine artesanal</h3>
-            </div>
-          </article>
-
-          <!-- 4. Sobremesa -->
-          <article class="menu-card" id="menuCardSobremesa1">
-            <div class="menu-image-wrapper">
-              <span class="menu-course-badge">Opção 1 - Sobremesa</span>
-              <img loading="lazy" decoding="async" src="assets/sobremesa.png" alt="Mousse de chocolate ou Crème brûlée"
-                class="menu-img">
-            </div>
-            <div class="menu-content">
-              <span class="menu-course-tag">Le Dessert</span>
-              <h3>Mousse de chocolate ou Crème brûlée</h3>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="menu-region">
-        <div class="menu-region-header">
-          <span>Opção 2</span>
-          <div>
-            <h3>Fondue em 3 tempos</h3>
-            <p>R$ 280 + taxa por pessoa</p>
-          </div>
-        </div>
-
-        <div class="menu-grid">
-
-          <!-- 1. Fondue de Queijo -->
-          <article class="menu-card" id="menuCardFondueQueijo">
-            <div class="menu-image-wrapper">
-              <span class="menu-course-badge">Opção 2 - 1º Tempo</span>
-              <img loading="lazy" decoding="async" src="assets/optimized/fondue-queijo.jpg"
-                alt="Fondue de queijo cremoso servido à mesa" class="menu-img">
-            </div>
-            <div class="menu-content">
-              <span class="menu-course-tag">Le Fromage</span>
-              <h3>Fondue de Queijos Artesanais</h3>
-              <p class="menu-desc">fondue de queijos artesanais acompanhado de pães artesanais</p>
-            </div>
-          </article>
-
-          <!-- 2. Prato Principal (2º Tempo) -->
-          <article class="menu-card" id="menuCardPrincipal">
-            <div class="menu-image-wrapper">
-              <span class="menu-course-badge">Opção 2 - 2º Tempo</span>
-              <img loading="lazy" decoding="async" src="assets/optimized/prato-carne.jpg"
-                alt="Sequência de carnes com ancho black angus na chapa e fondue de queijo" class="menu-img">
-            </div>
-            <div class="menu-content">
-              <span class="menu-course-tag">Le Plat Principal</span>
-              <h3>Carnes e Fondue de Queijo</h3>
-              <p class="menu-desc">Sequência de 4 tipos de carnes, incluindo o premiado acho black angus servido na chapa, acompanhado de fondue de queijo e molhos especiais</p>
-            </div>
-          </article>
-
-          <!-- 3. Sobremesa (3º Tempo) -->
-          <article class="menu-card" id="menuCardSobremesa">
-            <div class="menu-image-wrapper">
-              <span class="menu-course-badge">Opção 2 - 3º Tempo</span>
-              <img loading="lazy" decoding="async" src="assets/optimized/sobremesa-fondue.jpg"
-                alt="Fondue de chocolate belga com frutas selecionadas" class="menu-img">
-            </div>
-            <div class="menu-content">
-              <span class="menu-course-tag">Le Dessert</span>
-              <h3>Fondue de Chocolate Belga</h3>
-              <p class="menu-desc">fondue de chocolate belga com frutas selecionadas</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Sensorial Experience Section -->
-  <section class="section section-sensorial reveal" id="sensorialSection">
-    <div class="container">
-      <div class="sensorial-row">
-
-        <!-- Text details -->
-        <div class="sensorial-content-side">
-          <span class="section-tag">A Alta Experiência</span>
-          <h2 class="sensorial-title">Mais do que gastronomia, o Dia dos Namorados mais romântico da serra</h2>
-          <p class="sensorial-text">
-            Nas montanhas de Campos do Jordão, cada detalhe foi pensado para transformar a noite dos casais em uma
-            celebração inesquecível. Luzes, flores, lareiras, atendimento cuidadoso e uma atmosfera de filme fazem do
-            Bistrot de Ville um dos restaurantes mais românticos para viver o Dia dos Namorados.
-          </p>
-
-          <div class="sensorial-features-grid">
-            <div class="sensorial-feature-card">
-              <span class="feature-number">I.</span>
-              <div class="feature-info">
-                <h4>Música ao Vivo</h4>
-                <p>Uma trilha romântica ao vivo acompanha o jantar especial de Dia dos Namorados, criando o clima
-                  perfeito para brindar, conversar e se apaixonar ainda mais.</p>
-              </div>
-            </div>
-
-            <div class="sensorial-feature-card">
-              <span class="feature-number">II.</span>
-              <div class="feature-info">
-                <h4>Vallet</h4>
-                <p>Chegue com tranquilidade: o restaurante contará com estacionamento com manobrista para que a
-                  experiência comece elegante desde a chegada.</p>
-              </div>
-            </div>
-
-            <div class="sensorial-feature-card">
-              <span class="feature-number">III.</span>
-              <div class="feature-info">
-                <h4>Cenário Mais Romântico</h4>
-                <p>Jardim Iluminado, lareiras, flores, clipes românticos e
-                  música ao vivo compõem um cenário exclusivo para aproveitar ao lado de seu amor</p>
-              </div>
-            </div>
-
-            <div class="sensorial-feature-card">
-              <span class="feature-number">IV.</span>
-              <div class="feature-info">
-                <h4>Jantar Especial para Casais</h4>
-                <p>Menu pensado para compartilhar, atendimento atencioso e clima intimista fazem da data uma experiência
-                  completa, muito além de apenas sair para jantar.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Visual Collages -->
-        <div class="sensorial-media-side">
-          <div class="sensorial-image-collage" style="height: auto;">
-            <img loading="lazy" decoding="async"
-              src="assets/optimized/poster-experiencia.jpg"
-              alt="Poster Estacionamento com Manobrista e Música ao Vivo" class="collage-img-poster" style="width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-warm); border: 1px solid rgba(183, 167, 149, 0.2);">
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Emotional Promise Section -->
-  <section class="section section-promise reveal" id="promiseSection">
-    <div class="container promise-poster-container">
-      <img src="assets/optimized/dia-dos-namorados-poster.jpg" alt="Dia dos Namorados no Bistrot de Ville" class="promise-poster-img">
-    </div>
-  </section>
-
-  <!-- 8. Interactive Multi-Step Reservation Modal -->
-  <div class="modal-overlay" id="bookingModal" aria-hidden="true" role="dialog">
-    <div class="modal-card">
-      <button class="modal-close-btn" id="closeModal" aria-label="Fechar formulário de reserva">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M18 6L6 18M6 6l12 12" />
-        </svg>
-      </button>
-
-      <div class="modal-header">
-        <h3>Sua Reserva</h3>
-        <p>Vivencie momentos únicos nas montanhas</p>
-
-        <!-- Step Indicator dots -->
-        <div class="modal-progress">
-          <div class="progress-step active" data-step="1">1</div>
-          <div class="progress-step" data-step="2">2</div>
-          <div class="progress-step" data-step="3">✓</div>
-        </div>
-      </div>
-
-      <div class="modal-body">
-
-        <!-- STEP 1: Ambient, Date & Guests -->
-        <div class="form-step active" data-step="1">
-          <div class="form-group">
-            <label>Selecione a Experiência Desejada</label>
-            <div class="modal-ambient-picker">
-              <div class="ambient-option selected" data-ambient="Belle Époque (Interno)" id="pickerInternal">
-                <h4>Belle Époque</h4>
-                <p>Salão interno sofisticado à luz de velas</p>
-              </div>
-              <div class="ambient-option" data-ambient="Jardim com Lareira (Externo)" id="pickerExternal">
-                <h4>Jardim Externo</h4>
-                <p>Mesa com lareira ecológica e araucárias</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="bookingDate">Data de Preferência</label>
-            <select id="bookingDate" class="input-style">
-              <option value="12 de Junho (Sexta-feira) - Jantar Namorados">12 de Junho (Dia dos Namorados) - ESGOTANDO
-              </option>
-              <option value="13 de Junho (Sábado) - Jantar Especial">13 de Junho (Jantar Especial de Fim de Semana)
-              </option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="bookingTime">Horário do Jantar</label>
-            <select id="bookingTime" class="input-style">
-              <option value="19:00">19:00 (Acolhimento ao Pôr do Sol)</option>
-              <option value="21:15">21:15 (Jantar sob a luz da lua)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="bookingGuests">Número de Convidados</label>
-            <select id="bookingGuests" class="input-style">
-              <option value="2 pessoas (Casal)">Apenas Casal (Recomendado)</option>
-              <option value="1 pessoa">Mesa individual</option>
-              <option value="4 pessoas">Mesa Dupla de Casal (4 pessoas)</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- STEP 2: Contact Info -->
-        <div class="form-step" data-step="2">
-          <div class="form-group">
-            <label for="userName">Nome Completo</label>
-            <input type="text" id="userName" class="input-style" placeholder="Digite seu nome completo" required>
-          </div>
-
-          <div class="form-group">
-            <label for="userPhone">WhatsApp de Contato</label>
-            <input type="tel" id="userPhone" class="input-style" placeholder="(00) 90000-0000" required>
-          </div>
-
-          <div class="form-group">
-            <label for="userWishes">Solicitação Especial ou Alergias (Opcional)</label>
-            <textarea id="userWishes" class="input-style" rows="3"
-              placeholder="Ex: Pedido de casamento surpresa, intolerância a glúten, preferência por mesa de canto..."></textarea>
-          </div>
-        </div>
-
-        <!-- STEP 3: Reservation Confirmed Screen -->
-        <div class="form-step" data-step="3">
-          <div class="success-screen">
-            <div class="success-icon">
-              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path d="M20 6L9 17l-5-5" />
-              </svg>
-            </div>
-            <h4>Demande Reçue!</h4>
-            <p>Sua pré-reserva romântica para o Dia dos Namorados foi recebida com sucesso e enviada ao nosso Maître d'.
-            </p>
-
-            <div class="booking-summary">
-              <div class="summary-row">
-                <span class="summary-label">Convidado:</span>
-                <span class="summary-val" id="receiptName">Mateus Lima</span>
-              </div>
-              <div class="summary-row">
-                <span class="summary-label">WhatsApp:</span>
-                <span class="summary-val" id="receiptPhone">(11) 99999-9999</span>
-              </div>
-              <div class="summary-row">
-                <span class="summary-label">Atmosfera:</span>
-                <span class="summary-val" id="receiptAmbient">Jardim Externo</span>
-              </div>
-              <div class="summary-row">
-                <span class="summary-label">Horário:</span>
-                <span class="summary-val" id="receiptTime">19:30</span>
-              </div>
-            </div>
-
-            <p style="font-size: 0.85rem; color: var(--dourado);">
-              Entraremos em contato via WhatsApp nas próximas 2 horas para formalizar o envio do convite e validar os
-              detalhes do seu menu de 5 tempos. Prepare-se para uma noite mágica.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Modal Actions Footer -->
-      <div class="modal-footer" id="modalFooter">
-        <button class="btn-back" id="btnBack" style="display: none;">Voltar</button>
-        <button class="btn-primary btn-next" id="btnNext">Próximo Passo</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 9. Footer Section -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h4>Bistrot de Ville</h4>
-          <p>
-            Uma experiência romântica inspirada na Belle Époque francesa, integrada à exuberância serrana de Campos do
-            Jordão.
-          </p>
-        </div>
-
-        <div class="footer-links">
-          <h5>Navegação</h5>
+        <div class="special-event-menu-preview">
+          <h5>Menu Exclusivo da Noite:</h5>
           <ul>
-            <li><a href="#heroSection">Início</a></li>
-            <li><a href="#ambienteSection">Ambiente</a></li>
-            <li><a href="#ambientSection">Escolha seu Ambiente</a></li>
-            <li><a href="#sensorialSection">Experiência</a></li>
-            <li><a href="#ambientSection">Reservar</a></li>
+            <li>• Mezze Trio Tradicional</li>
+            <li>• Polvo Grelhado em Fava</li>
+            <li>• Moussaka de Cordeiro</li>
+            <li>• Shot de Boas-Vindas Ouzo</li>
           </ul>
         </div>
 
-        <div class="footer-contact">
-          <h5>Localização & Contato</h5>
-          <p>Rua Itália 115, Jardim Europa</p>
-          <p>Campos do Jordão — SP (Próximo ao resort Bendito Cacau)</p>
-          <p>WhatsApp: (12) 99742-1206</p>
-          <p>Google Reviews: 4.5★ (385 avaliações)</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#reservas" class="btn-primary" id="eventReserveBtn">Reservar Experiência</a>
+          <button class="btn-secondary" id="openEventMenuModal">Ver Cardápio do Evento</button>
+        </div>
+      </div>
+
+      <div>
+        <img src="assets/noite_ouzo.png" alt="Noite do Ouzo Especial" class="special-event-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Cardápio Digital Complete Section -->
+  <section class="section-menu" id="cardapio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Menu Digital</span>
+        <h2 class="section-title">Nosso Cardápio</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <p class="section-desc">Selecione uma categoria para explorar os sabores do Santorini Lounge.</p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="menu-filter-nav" id="menuFilterNav">
+        <button class="menu-filter-btn active" data-filter="todos">Todos</button>
+        <button class="menu-filter-btn" data-filter="entradas">Entradas</button>
+        <button class="menu-filter-btn" data-filter="pratos">Pratos Principais</button>
+        <button class="menu-filter-btn" data-filter="porcoes">Porções</button>
+        <button class="menu-filter-btn" data-filter="sobremesas">Sobremesas</button>
+        <button class="menu-filter-btn" data-filter="drinks">Drinks Autorais</button>
+        <button class="menu-filter-btn" data-filter="bebidas">Bebidas</button>
+      </div>
+
+      <!-- Dynamic Menu Items Container -->
+      <div class="menu-items-grid" id="menuItemsGrid">
+        <!-- Rendered via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Eventos & Experiências Section -->
+  <section class="section-events" id="eventos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Programação</span>
+        <h2 class="section-title">Eventos & Experiências</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <p class="section-desc">Experiências exclusivas preparadas para momentos inesquecíveis.</p>
+      </div>
+
+      <div class="events-grid">
+        <article class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="assets/noite_ouzo.png" alt="Noite do Ouzo" class="event-card-img">
+            <div class="event-date-badge">
+              <div class="day">25</div>
+              <div class="month">MAI</div>
+            </div>
+          </div>
+          <div class="event-card-body">
+            <h3 class="event-card-title">Noite do Ouzo</h3>
+            <p class="event-card-desc">Uma noite imersiva com menu degustação grego em 4 tempos, coquetéis de Ouzo e música ao vivo mediterrânea.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--navy); font-size: 1.1rem;">R$ 180 / pessoa</span>
+              <a href="#reservas" class="btn-navy">Reservar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="assets/hero_santorini.png" alt="Jantar dos Namorados" class="event-card-img">
+            <div class="event-date-badge">
+              <div class="day">12</div>
+              <div class="month">JUN</div>
+            </div>
+          </div>
+          <div class="event-card-body">
+            <h3 class="event-card-title">Jantar dos Namorados</h3>
+            <p class="event-card-desc">Romance à luz de velas, menu especial de 5 tempos com harmonização de vinhos e ambiente sob as estrelas.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--navy); font-size: 1.1rem;">R$ 290 / casal</span>
+              <a href="#reservas" class="btn-navy">Reservar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="assets/santorini_sunset.png" alt="Sunset Lounge Session" class="event-card-img">
+            <div class="event-date-badge">
+              <div class="day">SÁB</div>
+              <div class="month">18H</div>
+            </div>
+          </div>
+          <div class="event-card-body">
+            <h3 class="event-card-title">Sunset Lounge Sessions</h3>
+            <p class="event-card-desc">Todos os sábados no crepúsculo. DJ set refinado com Deep House mediterrâneo e carta de drinks promocional.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--navy); font-size: 1.1rem;">Couvert R$ 25</span>
+              <a href="#reservas" class="btn-navy">Reservar</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Photo Gallery Section -->
+  <section class="section-gallery" id="galeria">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Atmosphere</span>
+        <h2 class="section-title">Galeria Santorini</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <p class="section-desc">Clique nas fotografias para explorar os detalhes do nosso restaurante e lounge.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item large" data-lightbox="assets/hero_santorini.png" data-title="Vista do Lounge Noturno" data-caption="Terraço iluminado sob o luar inspirando o clima mediterrâneo.">
+          <img src="assets/hero_santorini.png" alt="Lounge Santorini Noturno" class="gallery-img">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Lounge Noturno</h4>
+            <span class="gallery-caption">Ver em tamanho real 🔍</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-lightbox="assets/lounge_experience.png" data-title="Salão dos Arcos" data-caption="Arquitetura grega com arcos curvos off-white e sofá azul marinho.">
+          <img src="assets/lounge_experience.png" alt="Salão dos Arcos" class="gallery-img">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Salão dos Arcos</h4>
+            <span class="gallery-caption">Ver em tamanho real 🔍</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-lightbox="assets/polvo_grelhado.png" data-title="Polvo Grelhado" data-caption="Alta gastronomia com polvo grelhado no carvão e fava amarela.">
+          <img src="assets/polvo_grelhado.png" alt="Polvo Grelhado" class="gallery-img">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Polvo Grelhado</h4>
+            <span class="gallery-caption">Ver em tamanho real 🔍</span>
+          </div>
+        </div>
+
+        <div class="gallery-item tall" data-lightbox="assets/santorini_sunset.png" data-title="Santorini Sunset Cocktail" data-caption="Drink exclusivo infusionado com alecrim e notas cítricas.">
+          <img src="assets/santorini_sunset.png" alt="Santorini Sunset" class="gallery-img">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Santorini Sunset</h4>
+            <span class="gallery-caption">Ver em tamanho real 🔍</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-lightbox="assets/moussaka.png" data-title="Moussaka Tradicional" data-caption="Prato típico grego gratinado com béchamel cremoso.">
+          <img src="assets/moussaka.png" alt="Moussaka" class="gallery-img">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Moussaka Tradicional</h4>
+            <span class="gallery-caption">Ver em tamanho real 🔍</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-lightbox="assets/blue_aegean.png" data-title="Blue Aegean Cocktail" data-caption="Bebida refrescante inspirada nas águas azuis do Mar Egeu.">
+          <img src="assets/blue_aegean.png" alt="Blue Aegean" class="gallery-img">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Blue Aegean</h4>
+            <span class="gallery-caption">Ver em tamanho real 🔍</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-lightbox="assets/baklava.png" data-title="Baklava de Pistache" data-caption="Sobremesa folhada com calda de mel e pistache moído.">
+          <img src="assets/baklava.png" alt="Baklava" class="gallery-img">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Baklava de Pistache</h4>
+            <span class="gallery-caption">Ver em tamanho real 🔍</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+    <div class="lightbox-content">
+      <span class="lightbox-close" id="lightboxClose">&times;</span>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <div style="text-align: center; margin-top: 16px; color: var(--off-white);">
+        <h4 id="lightboxTitle" style="font-family: var(--font-heading); font-size: 1.25rem;"></h4>
+        <p id="lightboxCaption" style="color: var(--areia); font-size: 0.9rem; margin-top: 4px;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reservations Section -->
+  <section class="section-reservations" id="reservas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Reservas</span>
+        <h2 class="section-title light">Reserve Sua Mesa</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
+        <p class="section-desc light">Garanta sua mesa para uma noite inesquecível no Santorini Lounge.</p>
+      </div>
+
+      <div class="reservation-container-card">
+        <form id="reservationForm">
+          <div class="reservation-form-grid">
+            <div class="form-group">
+              <label class="form-label" for="resName">Nome Completo *</label>
+              <input type="text" id="resName" class="form-input" placeholder="Seu nome completo" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="resPhone">Telefone / WhatsApp *</label>
+              <input type="tel" id="resPhone" class="form-input" placeholder="(00) 90000-0000" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="resEmail">E-mail</label>
+              <input type="email" id="resEmail" class="form-input" placeholder="seu@email.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="resDate">Data Desejada *</label>
+              <input type="date" id="resDate" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="resTime">Horário *</label>
+              <select id="resTime" class="form-input" required>
+                <option value="">Selecione o horário</option>
+                <option value="18:30">18:30 — Sunset</option>
+                <option value="19:30">19:30 — Jantar Principal</option>
+                <option value="20:30">20:30 — Prime Lounge</option>
+                <option value="21:30">21:30 — Late Lounge</option>
+                <option value="22:30">22:30 — Late Night</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="resGuests">Número de Pessoas *</label>
+              <select id="resGuests" class="form-input" required>
+                <option value="2">2 Pessoas (Casal)</option>
+                <option value="3">3 Pessoas</option>
+                <option value="4">4 Pessoas</option>
+                <option value="6">6 Pessoas</option>
+                <option value="8+">8+ Pessoas (Grupo Especial)</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label" for="resNotes">Observações Especiais ou Comemorações</label>
+              <textarea id="resNotes" class="form-input" rows="3" placeholder="Ex: Aniversário, mesa perto da varanda, intolerâncias alimentares..."></textarea>
+            </div>
+
+            <div class="form-group full-width" style="margin-top: 12px; text-align: center;">
+              <button type="submit" class="btn-primary" style="width: 100%; max-width: 400px; margin: 0 auto;">SOLICITAR RESERVA</button>
+            </div>
+          </div>
+        </form>
+
+        <div id="reservationSuccessMessage" style="display: none; text-align: center; padding: 40px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 12px;">✨</div>
+          <h3 style="font-family: var(--font-heading); color: var(--gold); font-size: 1.8rem;">Solicitação Recebida!</h3>
+          <p style="color: var(--areia); font-size: 1rem; margin-top: 10px; line-height: 1.6;">
+            Obrigado por escolher o Santorini Lounge. Nossa equipe entrará em contato via WhatsApp em breve para confirmar sua reserva.
+          </p>
+          <button class="btn-secondary" style="margin-top: 24px;" onclick="document.getElementById('reservationForm').reset(); document.getElementById('reservationForm').style.display='block'; document.getElementById('reservationSuccessMessage').style.display='none';">Fazer Outra Reserva</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Section -->
+  <section class="section-instagram">
+    <div class="container">
+      <span class="section-tag">Rede Social</span>
+      <h2 style="font-size: 2.2rem; margin-bottom: 8px;">SIGA O SANTORINI</h2>
+      <a href="https://www.instagram.com/santorini_lounge_/" target="_blank" rel="noopener noreferrer" class="insta-handle">
+        @santorini_lounge_
+      </a>
+
+      <div class="insta-grid">
+        <div class="insta-grid-item"><img src="assets/hero_santorini.png" alt="Insta 1"></div>
+        <div class="insta-grid-item"><img src="assets/lounge_experience.png" alt="Insta 2"></div>
+        <div class="insta-grid-item"><img src="assets/santorini_sunset.png" alt="Insta 3"></div>
+        <div class="insta-grid-item"><img src="assets/polvo_grelhado.png" alt="Insta 4"></div>
+        <div class="insta-grid-item"><img src="assets/noite_ouzo.png" alt="Insta 5"></div>
+        <div class="insta-grid-item"><img src="assets/baklava.png" alt="Insta 6"></div>
+      </div>
+
+      <a href="https://www.instagram.com/santorini_lounge_/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Ver Instagram Oficial
+      </a>
+    </div>
+  </section>
+
+  <!-- Localização Section (Onde Estamos) -->
+  <section class="section-location" id="contato">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-info-card">
+          <span class="section-tag">Localização</span>
+          <h3>ONDE ESTAMOS</h3>
+          <p class="location-address">
+            <strong>Santorini Lounge</strong><br>
+            R. Antônia Augusta de Andrade, 236<br>
+            São José, Itabirito — MG, 35450-000
+          </p>
+
+          <h4 style="font-size: 1.1rem; color: var(--navy); margin-top: 24px;">Horário de Funcionamento</h4>
+          <ul class="hours-list">
+            <li><span class="day">Terça a Quinta</span> <span class="time">18:00 às 00:00</span></li>
+            <li><span class="day">Sexta e Sábado</span> <span class="time">18:00 às 02:00</span></li>
+            <li><span class="day">Domingo</span> <span class="time">18:00 às 23:00</span></li>
+            <li><span class="day">Segunda-feira</span> <span class="time">Fechado</span></li>
+          </ul>
+
+          <a href="https://maps.app.goo.gl/n4AkkgBSob1tYNWE9" target="_blank" rel="noopener noreferrer" class="btn-navy" style="width: 100%;">
+            📍 COMO CHEGAR (GOOGLE MAPS)
+          </a>
+        </div>
+
+        <div class="map-wrapper">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.1567119102434!2d-43.8052136!3d-20.2523916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9a5083cfdb3ab9%3A0x8898129bb859a857!2sR.%20Ant%C3%B4nia%20Augusta%20de%20Andrade%2C%20236%20-%20S%C3%A3o%20Jos%C3%A9%2C%20Itabirito%20-%20MG%2C%2035450-000!5e0!3m2!1spt-BR!2sBR!4v1700000000000" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Santorini Lounge">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-main">SANTORINI LOUNGE</div>
+          <p>
+            Gastronomia mediterrânea autoral, lounge sofisticado e noites inesquecíveis inspiradas na ilha de Santorini.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#lounge">O Lounge</a></li>
+            <li><a href="#gastronomia">Gastronomia</a></li>
+            <li><a href="#cardapio">Cardápio Digital</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Redes & Contato</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/santorini_lounge_/" target="_blank">Instagram: @santorini_lounge_</a></li>
+            <li><a href="https://maps.app.goo.gl/n4AkkgBSob1tYNWE9" target="_blank">Itabirito — MG</a></li>
+            <li><a href="#reservas">Reservas On-line</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Horários</h4>
+          <p style="font-size: 0.85rem; color: var(--areia); line-height: 1.6;">
+            Ter a Qui: 18h às 00h<br>
+            Sex e Sáb: 18h às 02h<br>
+            Dom: 18h às 23h
+          </p>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Bistrot de Ville - Campos do Jordão. Todos os direitos reservados. Feito com amor para casais
-          especiais.</p>
-        <p>Charme & Alta Gastronomia Francesa nas Montanhas</p>
+        <p>© 2026 Santorini Lounge. Todos os direitos reservados. Design Mediterrâneo de Alta Performance.</p>
       </div>
     </div>
   </footer>
 
-  <!-- JS Logic -->
+  <!-- Main JavaScript Logic -->
   <script src="app.js"></script>
 </body>
-
 </html>
