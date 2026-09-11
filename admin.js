@@ -2,10 +2,19 @@
    SANTORINI LOUNGE — ADMINISTRATIVE PANEL LOGIC (admin.js)
    ========================================================================== */
 
-const ADMIN_DEFAULT_USER = 'Santorini2026';
-const ADMIN_DEFAULT_PASS = 'LoungeSantorini';
+// Initial Default Credentials
+const DEFAULT_CREDS = {
+  user: 'Santorinilounge',
+  pass: 'Lounge26'
+};
 
-// Check Auth state
+// Get stored or default admin credentials
+function getAdminCreds() {
+  const data = localStorage.getItem('santorini_admin_creds');
+  return data ? JSON.parse(data) : DEFAULT_CREDS;
+}
+
+// Check Auth State
 function checkAdminAuth() {
   const isAuth = sessionStorage.getItem('santorini_admin_auth');
   const loginOverlay = document.getElementById('adminLoginOverlay');
@@ -29,9 +38,11 @@ function setupLoginForm() {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const user = document.getElementById('adminUserInput').value;
-      const pass = document.getElementById('adminPasswordInput').value;
-      if (user === ADMIN_DEFAULT_USER && pass === ADMIN_DEFAULT_PASS) {
+      const user = document.getElementById('adminUserInput').value.trim();
+      const pass = document.getElementById('adminPasswordInput').value.trim();
+      const currentCreds = getAdminCreds();
+
+      if (user === currentCreds.user && pass === currentCreds.pass) {
         sessionStorage.setItem('santorini_admin_auth', 'true');
         if (errorMsg) errorMsg.style.display = 'none';
         checkAdminAuth();
@@ -50,7 +61,35 @@ function setupLoginForm() {
   }
 }
 
-// Tab Switching
+// Setup Credential Change Form in Settings
+function setupCredsForm() {
+  const form = document.getElementById('adminCredsForm');
+  const userInput = document.getElementById('newAdminUser');
+  const passInput = document.getElementById('newAdminPass');
+  const msg = document.getElementById('credsSuccessMsg');
+
+  if (!form) return;
+
+  const currentCreds = getAdminCreds();
+  if (userInput) userInput.value = currentCreds.user;
+  if (passInput) passInput.value = currentCreds.pass;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newCreds = {
+      user: userInput.value.trim(),
+      pass: passInput.value.trim()
+    };
+
+    localStorage.setItem('santorini_admin_creds', JSON.stringify(newCreds));
+    if (msg) {
+      msg.style.display = 'block';
+      setTimeout(() => { msg.style.display = 'none'; }, 3000);
+    }
+  });
+}
+
+// Tab Switching Navigation
 function setupTabNavigation() {
   const tabBtns = document.querySelectorAll('.admin-tab-btn');
   const tabContents = document.querySelectorAll('.admin-tab-content');
@@ -71,7 +110,7 @@ function setupTabNavigation() {
 // Load Data into Tables
 function loadAdminData() {
   renderAdminMenuTable();
-  loadSpecialEventForm();
+  renderAdminEventsTable();
   renderAdminReservationsTable();
 }
 
@@ -83,7 +122,7 @@ function renderAdminMenuTable() {
   const items = JSON.parse(localStorage.getItem('santorini_menu_items') || '[]');
 
   if (items.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7" style="text-align: center;">Nenhum item encontrado.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--areia);">Nenhum item encontrado no cardápio.</td></tr>`;
     return;
   }
 
@@ -109,7 +148,7 @@ function renderAdminMenuTable() {
   `).join('');
 }
 
-// Toggle Item Active Status
+// Toggle Menu Item Active Status
 window.toggleItemStatus = function(id) {
   const items = JSON.parse(localStorage.getItem('santorini_menu_items') || '[]');
   const index = items.findIndex(i => i.id === id);
@@ -120,7 +159,7 @@ window.toggleItemStatus = function(id) {
   }
 };
 
-// Delete Item
+// Delete Menu Item
 window.deleteMenuItem = function(id) {
   if (confirm('Tem certeza que deseja excluir este item do cardápio?')) {
     let items = JSON.parse(localStorage.getItem('santorini_menu_items') || '[]');
@@ -202,33 +241,133 @@ window.editMenuItem = function(id) {
   document.getElementById('menuItemModal').classList.add('open');
 };
 
-// Special Event Manager
-function loadSpecialEventForm() {
-  const form = document.getElementById('adminSpecialEventForm');
-  if (!form) return;
+// Render Events Table in Admin
+function renderAdminEventsTable() {
+  const tbody = document.getElementById('adminEventsTableBody');
+  if (!tbody) return;
 
-  const eventData = JSON.parse(localStorage.getItem('santorini_special_event') || '{}');
+  const events = JSON.parse(localStorage.getItem('santorini_events') || '[]');
 
-  document.getElementById('eventIsActive').checked = eventData.is_active !== false;
-  document.getElementById('adminEventTitle').value = eventData.title || '';
-  document.getElementById('adminEventSubtitle').value = eventData.subtitle || '';
-  document.getElementById('adminEventDate').value = eventData.eventDate || '';
-  document.getElementById('adminEventTime').value = eventData.eventTime || '';
+  if (events.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--areia);">Nenhum evento cadastrado.</td></tr>`;
+    return;
+  }
 
-  form.onsubmit = function(e) {
+  tbody.innerHTML = events.map(ev => `
+    <tr>
+      <td><img src="${ev.image || 'assets/lounge_experience.png'}" style="width: 48px; height: 48px; object-fit: cover; border-radius: 4px;"></td>
+      <td><strong>${ev.title}</strong><br><span style="font-size: 0.75rem; color: var(--gold);">${ev.subtitle || ''}</span></td>
+      <td>${ev.day} / ${ev.month}</td>
+      <td>${ev.priceText || '-'}</td>
+      <td>
+        <button onclick="toggleEventStatus('${ev.id}')" style="background: ${ev.is_active ? '#10B981' : '#EF4444'}; color: #FFF; border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; cursor: pointer;">
+          ${ev.is_active ? 'Ativo' : 'Inativo'}
+        </button>
+      </td>
+      <td>
+        <div style="display: flex; gap: 6px;">
+          <button onclick="editEvent('${ev.id}')" style="background: var(--navy-light); color: var(--gold); border: 1px solid var(--gold); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; cursor: pointer;">Editar</button>
+          <button onclick="deleteEvent('${ev.id}')" style="background: #7F1D1D; color: #FFF; border: none; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; cursor: pointer;">Excluir</button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+// Toggle Event Status
+window.toggleEventStatus = function(id) {
+  const events = JSON.parse(localStorage.getItem('santorini_events') || '[]');
+  const index = events.findIndex(e => e.id === id);
+  if (index !== -1) {
+    events[index].is_active = !events[index].is_active;
+    localStorage.setItem('santorini_events', JSON.stringify(events));
+    renderAdminEventsTable();
+  }
+};
+
+// Delete Event
+window.deleteEvent = function(id) {
+  if (confirm('Tem certeza que deseja excluir este evento?')) {
+    let events = JSON.parse(localStorage.getItem('santorini_events') || '[]');
+    events = events.filter(e => e.id !== id);
+    localStorage.setItem('santorini_events', JSON.stringify(events));
+    renderAdminEventsTable();
+  }
+};
+
+// Setup Event Modal (Add & Edit)
+function setupEventModal() {
+  const modal = document.getElementById('eventModal');
+  const btnOpen = document.getElementById('btnOpenNewEventModal');
+  const btnClose = document.getElementById('closeEventModal');
+  const btnCancel = document.getElementById('cancelEventModal');
+  const form = document.getElementById('eventForm');
+
+  if (!modal) return;
+
+  const openFn = () => {
+    form.reset();
+    document.getElementById('eventId').value = '';
+    document.getElementById('eventModalTitle').innerText = 'Adicionar Novo Evento';
+    modal.classList.add('open');
+  };
+
+  const closeFn = () => {
+    modal.classList.remove('open');
+  };
+
+  if (btnOpen) btnOpen.addEventListener('click', openFn);
+  if (btnClose) btnClose.addEventListener('click', closeFn);
+  if (btnCancel) btnCancel.addEventListener('click', closeFn);
+
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const updated = {
-      is_active: document.getElementById('eventIsActive').checked,
-      title: document.getElementById('adminEventTitle').value,
-      subtitle: document.getElementById('adminEventSubtitle').value,
-      eventDate: document.getElementById('adminEventDate').value,
-      eventTime: document.getElementById('adminEventTime').value
+    const id = document.getElementById('eventId').value || 'ev_' + Date.now();
+    const newEv = {
+      id: id,
+      title: document.getElementById('eventTitleInput').value,
+      subtitle: document.getElementById('eventSubtitleInput').value,
+      day: document.getElementById('eventDayInput').value,
+      month: document.getElementById('eventMonthInput').value,
+      priceText: document.getElementById('eventPriceInput').value,
+      image: document.getElementById('eventImageInput').value,
+      description: document.getElementById('eventDescInput').value,
+      is_active: true
     };
 
-    localStorage.setItem('santorini_special_event', JSON.stringify(updated));
-    alert('Configuração do Evento Especial atualizada com sucesso!');
-  };
+    let events = JSON.parse(localStorage.getItem('santorini_events') || '[]');
+    const index = events.findIndex(e => e.id === id);
+
+    if (index !== -1) {
+      events[index] = newEv;
+    } else {
+      events.unshift(newEv);
+    }
+
+    localStorage.setItem('santorini_events', JSON.stringify(events));
+    closeFn();
+    renderAdminEventsTable();
+  });
 }
+
+// Edit Event
+window.editEvent = function(id) {
+  const events = JSON.parse(localStorage.getItem('santorini_events') || '[]');
+  const ev = events.find(e => e.id === id);
+  if (!ev) return;
+
+  document.getElementById('eventId').value = ev.id;
+  document.getElementById('eventTitleInput').value = ev.title;
+  document.getElementById('eventSubtitleInput').value = ev.subtitle || '';
+  document.getElementById('eventDayInput').value = ev.day;
+  document.getElementById('eventMonthInput').value = ev.month;
+  document.getElementById('eventPriceInput').value = ev.priceText || '';
+  document.getElementById('eventImageInput').value = ev.image || '';
+  document.getElementById('eventDescInput').value = ev.description || '';
+
+  document.getElementById('eventModalTitle').innerText = 'Editar Evento';
+  document.getElementById('eventModal').classList.add('open');
+};
 
 // Render Reservations Table
 function renderAdminReservationsTable() {
@@ -238,7 +377,7 @@ function renderAdminReservationsTable() {
   const reservations = JSON.parse(localStorage.getItem('santorini_reservations') || '[]');
 
   if (reservations.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align: center;">Nenhuma reserva registrada ainda.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--areia);">Nenhuma reserva registrada ainda.</td></tr>`;
     return;
   }
 
@@ -250,15 +389,15 @@ function renderAdminReservationsTable() {
       <td>${r.date}</td>
       <td>${r.time}</td>
       <td>${r.guests} pess.</td>
-      <td>${r.notes || '-'}</td>
-      <td><span style="background: #F59E0B; color: #FFF; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">${r.status || 'pendente'}</span></td>
+      <td style="font-size: 0.75rem; max-width: 200px;">${r.notes || '-'}</td>
+      <td><span style="background: #3B82F6; color: #FFF; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">${r.status || 'pendente'}</span></td>
     </tr>
   `).join('');
 
   const btnClear = document.getElementById('btnClearReservations');
   if (btnClear) {
     btnClear.onclick = () => {
-      if (confirm('Deseja realmente limpar todo o histórico de reservas?')) {
+      if (confirm('Tem certeza que deseja apagar todo o histórico de reservas?')) {
         localStorage.removeItem('santorini_reservations');
         renderAdminReservationsTable();
       }
@@ -266,10 +405,12 @@ function renderAdminReservationsTable() {
   }
 }
 
-// Initialize Admin
+// Initialize Admin Application on DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
   setupLoginForm();
   checkAdminAuth();
   setupTabNavigation();
   setupMenuItemModal();
+  setupEventModal();
+  setupCredsForm();
 });

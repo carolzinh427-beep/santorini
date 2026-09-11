@@ -20,11 +20,11 @@
       <form id="adminLoginForm">
         <div style="margin-bottom: 14px; text-align: left;">
           <label style="font-size: 0.8rem; color: var(--areia); text-transform: uppercase; display: block; margin-bottom: 6px;">Usuário de Acesso</label>
-          <input type="text" id="adminUserInput" class="form-input" placeholder="Digite o usuário" style="width: 100%;" required>
+          <input type="text" id="adminUserInput" class="form-input" placeholder="Usuário" style="width: 100%;" required>
         </div>
         <div style="margin-bottom: 20px; text-align: left;">
           <label style="font-size: 0.8rem; color: var(--areia); text-transform: uppercase; display: block; margin-bottom: 6px;">Senha de Acesso</label>
-          <input type="password" id="adminPasswordInput" class="form-input" placeholder="Digite a senha" style="width: 100%;" required>
+          <input type="password" id="adminPasswordInput" class="form-input" placeholder="Senha" style="width: 100%;" required>
         </div>
         <button type="submit" class="btn-primary" style="width: 100%;">ENTRAR NO PAINEL</button>
       </form>
@@ -55,9 +55,9 @@
       <!-- Tab Navigation Buttons -->
       <div class="admin-nav-tabs">
         <button class="admin-tab-btn active" data-tab="tabMenu">🍽️ Gerenciar Cardápio</button>
-        <button class="admin-tab-btn" data-tab="tabEvents">🎉 Eventos & Cardápio Especial</button>
+        <button class="admin-tab-btn" data-tab="tabEvents">🎉 Gerenciar Eventos</button>
         <button class="admin-tab-btn" data-tab="tabReservations">📋 Reservas Recebidas</button>
-        <button class="admin-tab-btn" data-tab="tabSettings">⚙️ Configurações</button>
+        <button class="admin-tab-btn" data-tab="tabSettings">⚙️ Configurações & Acesso</button>
       </div>
 
       <!-- Tab 1: Menu CRUD -->
@@ -66,7 +66,7 @@
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
             <div>
               <h3 style="font-family: var(--font-heading); color: var(--off-white); font-size: 1.4rem;">Itens do Cardápio Digital</h3>
-              <p style="color: var(--areia); font-size: 0.85rem;">Adicione, edite preços ou ative/desative pratos e drinks em tempo real.</p>
+              <p style="color: var(--areia); font-size: 0.85rem;">Adicione, edite preços, mude imagens ou ative/desative pratos e drinks em tempo real.</p>
             </div>
             <button id="btnOpenNewItemModal" class="btn-primary">+ ADICIONAR NOVO ITEM</button>
           </div>
@@ -93,44 +93,34 @@
         </div>
       </div>
 
-      <!-- Tab 2: Special Events -->
+      <!-- Tab 2: Events CRUD -->
       <div id="tabEvents" class="admin-tab-content" style="display: none;">
         <div class="admin-panel-card">
-          <h3 style="font-family: var(--font-heading); color: var(--off-white); font-size: 1.4rem; margin-bottom: 8px;">Configuração do Evento Especial (Cardápio Especial)</h3>
-          <p style="color: var(--areia); font-size: 0.85rem; margin-bottom: 24px;">Ative ou desative o destaque do evento especial exibido no site principal.</p>
-
-          <form id="adminSpecialEventForm">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; background: rgba(7, 26, 61, 0.6); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-gold);">
-              <input type="checkbox" id="eventIsActive" style="width: 20px; height: 20px; accent-color: var(--gold);">
-              <label for="eventIsActive" style="font-weight: 600; color: var(--gold); font-size: 1rem; cursor: pointer;">EXIBIR BANNER DE EVENTO ESPECIAL NO SITE PRINCIPAL</label>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h3 style="font-family: var(--font-heading); color: var(--off-white); font-size: 1.4rem;">Eventos & Experiências</h3>
+              <p style="color: var(--areia); font-size: 0.85rem;">Adicione novos eventos, edite descrições, altere imagens ou remova programações.</p>
             </div>
+            <button id="btnOpenNewEventModal" class="btn-primary">+ ADICIONAR NOVO EVENTO</button>
+          </div>
 
-            <div class="reservation-form-grid">
-              <div class="form-group">
-                <label class="form-label">Título do Evento</label>
-                <input type="text" id="adminEventTitle" class="form-input" required>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Subtítulo / Chamada</label>
-                <input type="text" id="adminEventSubtitle" class="form-input" required>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Data do Evento</label>
-                <input type="text" id="adminEventDate" class="form-input" placeholder="Ex: 25 DE MAIO, 2026" required>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Horário do Evento</label>
-                <input type="text" id="adminEventTime" class="form-input" placeholder="Ex: 20H ÀS 02H" required>
-              </div>
-
-              <div class="form-group full-width">
-                <button type="submit" class="btn-primary" style="width: 250px;">SALVAR ALTERAÇÕES DO EVENTO</button>
-              </div>
-            </div>
-          </form>
+          <div style="overflow-x: auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Imagem</th>
+                  <th>Título do Evento</th>
+                  <th>Data/Horário</th>
+                  <th>Valor</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="adminEventsTableBody">
+                <!-- Rendered dynamically via admin.js -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -167,14 +157,34 @@
         </div>
       </div>
 
-      <!-- Tab 4: Settings -->
+      <!-- Tab 4: Settings & Credentials -->
       <div id="tabSettings" class="admin-tab-content" style="display: none;">
+        <div class="admin-panel-card" style="margin-bottom: 30px;">
+          <h3 style="font-family: var(--font-heading); color: var(--off-white); font-size: 1.4rem; margin-bottom: 16px;">🔑 Alterar Usuário e Senha de Acesso</h3>
+          <p style="color: var(--areia); font-size: 0.85rem; margin-bottom: 20px;">Modifique o usuário e senha do painel administrativo. As alterações são salvas com segurança localmente.</p>
+
+          <form id="adminCredsForm" style="max-width: 450px;">
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label">Novo Usuário de Acesso</label>
+              <input type="text" id="newAdminUser" class="form-input" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label class="form-label">Nova Senha de Acesso</label>
+              <input type="password" id="newAdminPass" class="form-input" required>
+            </div>
+
+            <button type="submit" class="btn-primary">SALVAR NOVAS CREDENCIAIS</button>
+            <p id="credsSuccessMsg" style="color: #10B981; font-size: 0.85rem; margin-top: 12px; display: none;">Credenciais atualizadas com sucesso!</p>
+          </form>
+        </div>
+
         <div class="admin-panel-card">
-          <h3 style="font-family: var(--font-heading); color: var(--off-white); font-size: 1.4rem; margin-bottom: 16px;">Configurações do Estabelecimento</h3>
+          <h3 style="font-family: var(--font-heading); color: var(--off-white); font-size: 1.4rem; margin-bottom: 16px;">Informações do Estabelecimento</h3>
           <p style="color: var(--areia); font-size: 0.9rem; line-height: 1.6;">
             Endereço: R. Antônia Augusta de Andrade, 236 - São José, Itabirito - MG, 35450-000<br>
             Instagram: @santorini_lounge_<br>
-            Supabase DB Sync: Ativado com fallback seguro no LocalStorage.
+            Armazenamento: LocalStorage & Supabase Ready.
           </p>
         </div>
       </div>
@@ -217,7 +227,7 @@
         </div>
 
         <div class="form-group" style="margin-bottom: 14px;">
-          <label class="form-label">Caminho da Imagem</label>
+          <label class="form-label">Caminho / URL da Imagem</label>
           <input type="text" id="menuItemImage" class="form-input" value="assets/moussaka.png" required>
         </div>
 
@@ -229,6 +239,58 @@
         <div style="display: flex; justify-content: flex-end; gap: 12px;">
           <button type="button" id="cancelMenuItemModal" class="btn-secondary">Cancelar</button>
           <button type="submit" class="btn-primary">Salvar Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add/Edit Event Modal -->
+  <div id="eventModal" class="lightbox-modal">
+    <div style="background-color: var(--navy); padding: 36px; border-radius: var(--radius-lg); border: 1px solid var(--border-gold); max-width: 500px; width: 100%; position: relative;">
+      <span id="closeEventModal" class="lightbox-close">&times;</span>
+      <h3 id="eventModalTitle" style="font-family: var(--font-heading); color: var(--off-white); font-size: 1.4rem; margin-bottom: 20px;">Adicionar Novo Evento</h3>
+
+      <form id="eventForm">
+        <input type="hidden" id="eventId">
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">Título do Evento</label>
+          <input type="text" id="eventTitleInput" class="form-input" placeholder="Ex: Jantar Harmonizado" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">Subtítulo / Destaque</label>
+          <input type="text" id="eventSubtitleInput" class="form-input" placeholder="Ex: Menu em 5 tempos com harmonização">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+          <div class="form-group">
+            <label class="form-label">Dia / Sigla</label>
+            <input type="text" id="eventDayInput" class="form-input" placeholder="Ex: 25 ou SÁB" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mês / Horário</label>
+            <input type="text" id="eventMonthInput" class="form-input" placeholder="Ex: MAI ou 18H" required>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">Preço / Valor por pessoa</label>
+          <input type="text" id="eventPriceInput" class="form-input" placeholder="Ex: R$ 180 / pessoa">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">Caminho / URL da Imagem</label>
+          <input type="text" id="eventImageInput" class="form-input" value="assets/lounge_experience.png" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="form-label">Descrição Completa</label>
+          <textarea id="eventDescInput" class="form-input" rows="3" required></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px;">
+          <button type="button" id="cancelEventModal" class="btn-secondary">Cancelar</button>
+          <button type="submit" class="btn-primary">Salvar Evento</button>
         </div>
       </form>
     </div>

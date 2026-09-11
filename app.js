@@ -2,7 +2,7 @@
    SANTORINI LOUNGE — FRONTEND APPLICATION LOGIC (app.js)
    ========================================================================== */
 
-// Initial Seed Data for Menu Items
+// Initial Seed Data for Menu Items with high quality distinct images
 const INITIAL_MENU_ITEMS = [
   {
     id: 'm1',
@@ -11,7 +11,7 @@ const INITIAL_MENU_ITEMS = [
     price: 28.00,
     badge: 'Clássico Grego',
     description: 'Iogurte grego artesanal, pepino crocante, alho suave, azeite extra virgem grego e hortelã fresca.',
-    image: 'assets/moussaka.png',
+    image: 'assets/entrada.png',
     is_active: true
   },
   {
@@ -21,7 +21,7 @@ const INITIAL_MENU_ITEMS = [
     price: 32.00,
     badge: 'Mais Pedido',
     description: 'Pão de fermentação natural grelhado, tomates assados no azeite, queijo Feta DOP, azeitonas Kalamata e orégano.',
-    image: 'assets/moussaka.png',
+    image: 'assets/entrada.png',
     is_active: true
   },
   {
@@ -37,7 +37,7 @@ const INITIAL_MENU_ITEMS = [
   {
     id: 'm4',
     category: 'pratos',
-    name: 'Moussaka Tradicional Gratada',
+    name: 'Moussaka Tradicional Gratinada',
     price: 78.00,
     badge: 'Especialidade',
     description: 'Camadas intercaladas de berinjela grelhada, batata, ragù de carne temperado com especiarias mediterrâneas e béchamel cremoso.',
@@ -51,7 +51,7 @@ const INITIAL_MENU_ITEMS = [
     price: 84.00,
     badge: 'Imperdível',
     description: 'Arroz arbóreo cremoso aromatizado com limão siciliano grelhado, camarões rosa grandes grelhados e finalizado com Feta.',
-    image: 'assets/polvo_grelhado.png',
+    image: 'assets/prato-salmao.png',
     is_active: true
   },
   {
@@ -61,7 +61,7 @@ const INITIAL_MENU_ITEMS = [
     price: 89.00,
     badge: 'Premium',
     description: 'Medalhão de filé mignon grelhado na crosta de pimentas e molho demi-glace aromatizado com alecrim, acompanhado de batatas rústicas.',
-    image: 'assets/moussaka.png',
+    image: 'assets/prato-carne.png',
     is_active: true
   },
   {
@@ -71,7 +71,7 @@ const INITIAL_MENU_ITEMS = [
     price: 64.00,
     badge: 'Para Compartilhar',
     description: 'Seleção artesanal de Tzatziki, Hommus, Babaganoush, azeitonas marroquinas, falafel crocante e pão pita quente.',
-    image: 'assets/polvo_grelhado.png',
+    image: 'assets/prato-ragu.png',
     is_active: true
   },
   {
@@ -91,7 +91,7 @@ const INITIAL_MENU_ITEMS = [
     price: 26.00,
     badge: 'Refrescante',
     description: 'Base de biscoito amanteigado, creme leve à base de iogurte grego e coulis artesanal de frutas vermelhas.',
-    image: 'assets/baklava.png',
+    image: 'assets/sobremesa.png',
     is_active: true
   },
   {
@@ -101,7 +101,7 @@ const INITIAL_MENU_ITEMS = [
     price: 24.00,
     badge: 'Autoral',
     description: 'Sorvete artesanal de iogurte grego cremoso, mel puro orgânico e praliné de pistaches crocantes.',
-    image: 'assets/baklava.png',
+    image: 'assets/sobremesa-fondue.png',
     is_active: true
   },
   {
@@ -141,29 +141,59 @@ const INITIAL_MENU_ITEMS = [
     price: 140.00,
     badge: 'Carta Especial',
     description: 'Vinho de acidez vibrante, notas minerais e cítricas produzidas na região vulcânica de Santorini.',
-    image: 'assets/noite_ouzo.png',
+    image: 'assets/blue_aegean.png',
     is_active: true
   }
 ];
 
-// Initial Special Event State
-const INITIAL_SPECIAL_EVENT = {
-  is_active: true,
-  title: 'NOITE DO OUZO',
-  subtitle: 'Uma noite especial com pratos selecionados, drinks exclusivos e muita música.',
-  eventDate: '25 DE MAIO, 2026',
-  eventTime: '20H ÀS 02H',
-  price: 180.00,
-  image: 'assets/noite_ouzo.png'
-};
+// Initial Seed Data for Events & Experiences
+const INITIAL_EVENTS = [
+  {
+    id: 'ev1',
+    title: 'Jantar Harmonizado Mediterrâneo',
+    subtitle: 'Uma experiência gastronômica em 5 passos com harmonização de vinhos.',
+    day: '25',
+    month: 'MAI',
+    priceText: 'R$ 180 / pessoa',
+    description: 'Uma noite imersiva com menu degustação grego, coquetéis artesanais e música ao vivo mediterrânea.',
+    image: 'assets/lounge_experience.png',
+    is_active: true
+  },
+  {
+    id: 'ev2',
+    title: 'Jantar dos Namorados',
+    subtitle: 'Romance à luz de velas e menu autoral.',
+    day: '12',
+    month: 'JUN',
+    priceText: 'R$ 290 / casal',
+    description: 'Romance sob as estrelas com menu especial de 5 tempos, harmonização de vinhos e trilha sonora intimista.',
+    image: 'assets/hero_santorini.png',
+    is_active: true
+  },
+  {
+    id: 'ev3',
+    title: 'Sunset Lounge Sessions',
+    subtitle: 'DJ Set com Deep House mediterrâneo no crepúsculo.',
+    day: 'SÁB',
+    month: '18H',
+    priceText: 'Couvert R$ 25',
+    description: 'Todos os sábados no pôr do sol. DJ set refinado, ambiente sofisticado e carta de drinks promocional.',
+    image: 'assets/santorini_sunset.png',
+    is_active: true
+  }
+];
+
+// Menu Expand State
+let isMenuExpanded = false;
+let currentCategoryFilter = 'todos';
 
 // Initialize Application Data Store in localStorage
 function initializeDataStore() {
   if (!localStorage.getItem('santorini_menu_items')) {
     localStorage.setItem('santorini_menu_items', JSON.stringify(INITIAL_MENU_ITEMS));
   }
-  if (!localStorage.getItem('santorini_special_event')) {
-    localStorage.setItem('santorini_special_event', JSON.stringify(INITIAL_SPECIAL_EVENT));
+  if (!localStorage.getItem('santorini_events')) {
+    localStorage.setItem('santorini_events', JSON.stringify(INITIAL_EVENTS));
   }
 }
 
@@ -173,14 +203,22 @@ function getMenuItems() {
   return data ? JSON.parse(data) : INITIAL_MENU_ITEMS;
 }
 
+// Get Events from LocalStorage
+function getEvents() {
+  const data = localStorage.getItem('santorini_events');
+  return data ? JSON.parse(data) : INITIAL_EVENTS;
+}
+
 // Format Price to BRL
 function formatPrice(val) {
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
 }
 
-// Render Menu Cards
+// Render Menu Cards with Compact View & Toggle Button
 function renderMenu(filterCategory = 'todos') {
+  currentCategoryFilter = filterCategory;
   const container = document.getElementById('menuItemsGrid');
+  const expandWrapper = document.getElementById('menuExpandWrapper');
   if (!container) return;
 
   const items = getMenuItems();
@@ -196,10 +234,14 @@ function renderMenu(filterCategory = 'todos') {
         <p>Nenhum item disponível nesta categoria no momento.</p>
       </div>
     `;
+    if (expandWrapper) expandWrapper.innerHTML = '';
     return;
   }
 
-  container.innerHTML = filtered.map(item => `
+  // Display only first 6 items if not expanded
+  const displayItems = isMenuExpanded ? filtered : filtered.slice(0, 6);
+
+  container.innerHTML = displayItems.map(item => `
     <article class="menu-item-card" data-category="${item.category}">
       <div class="menu-item-img-wrapper">
         <img src="${item.image || 'assets/moussaka.png'}" alt="${item.name}" class="menu-item-img" loading="lazy">
@@ -214,6 +256,27 @@ function renderMenu(filterCategory = 'todos') {
       </div>
     </article>
   `).join('');
+
+  // Render "Ver Cardápio Completo" button if there are more than 6 items
+  if (expandWrapper) {
+    if (filtered.length > 6) {
+      expandWrapper.innerHTML = `
+        <button id="toggleMenuExpandBtn" class="btn-secondary" style="padding: 12px 32px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+          ${isMenuExpanded ? 'Recolher Cardápio ▲' : `Ver Cardápio Completo (${filtered.length} itens) ▼`}
+        </button>
+      `;
+
+      const btn = document.getElementById('toggleMenuExpandBtn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          isMenuExpanded = !isMenuExpanded;
+          renderMenu(currentCategoryFilter);
+        });
+      }
+    } else {
+      expandWrapper.innerHTML = '';
+    }
+  }
 }
 
 // Category Filter Listener
@@ -224,75 +287,48 @@ function setupMenuFilters() {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.getAttribute('data-filter');
+      isMenuExpanded = false; // reset expand on category change
       renderMenu(filter);
     });
   });
 }
 
-// Sync Special Event Section with localStorage state
-function syncSpecialEventState() {
-  const eventContainer = document.getElementById('specialEventContainer');
-  if (!eventContainer) return;
+// Render Events & Experiences Section
+function renderEventsSection() {
+  const container = document.getElementById('eventsContainer');
+  if (!container) return;
 
-  const eventData = JSON.parse(localStorage.getItem('santorini_special_event') || JSON.stringify(INITIAL_SPECIAL_EVENT));
+  const events = getEvents().filter(e => e.is_active);
 
-  if (!eventData.is_active) {
-    eventContainer.style.display = 'none';
-  } else {
-    eventContainer.style.display = 'block';
-    const titleEl = document.getElementById('eventTitle');
-    const subtitleEl = document.getElementById('eventSubtitle');
-    const dateEl = document.getElementById('eventDate');
-    const timeEl = document.getElementById('eventTime');
-
-    if (titleEl) titleEl.innerText = eventData.title;
-    if (subtitleEl) subtitleEl.innerText = eventData.subtitle;
-    if (dateEl) dateEl.innerText = eventData.eventDate;
-    if (timeEl) timeEl.innerText = eventData.eventTime;
+  if (events.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--areia);">
+        <p>Nenhum evento programado no momento. Acompanhe nossas redes sociais!</p>
+      </div>
+    `;
+    return;
   }
-}
 
-// Lightbox Modal Setup
-function setupLightbox() {
-  const lightboxModal = document.getElementById('lightboxModal');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxTitle = document.getElementById('lightboxTitle');
-  const lightboxCaption = document.getElementById('lightboxCaption');
-  const lightboxClose = document.getElementById('lightboxClose');
-
-  if (!lightboxModal) return;
-
-  document.querySelectorAll('[data-lightbox]').forEach(item => {
-    item.addEventListener('click', () => {
-      const src = item.getAttribute('data-lightbox');
-      const title = item.getAttribute('data-title') || '';
-      const caption = item.getAttribute('data-caption') || '';
-
-      lightboxImg.src = src;
-      lightboxTitle.innerText = title;
-      lightboxCaption.innerText = caption;
-
-      lightboxModal.classList.add('open');
-      lightboxModal.setAttribute('aria-hidden', 'false');
-    });
-  });
-
-  const closeFn = () => {
-    lightboxModal.classList.remove('open');
-    lightboxModal.setAttribute('aria-hidden', 'true');
-  };
-
-  if (lightboxClose) lightboxClose.addEventListener('click', closeFn);
-
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) closeFn();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal.classList.contains('open')) {
-      closeFn();
-    }
-  });
+  container.innerHTML = events.map(event => `
+    <article class="event-card">
+      <div class="event-card-img-wrapper">
+        <img src="${event.image || 'assets/lounge_experience.png'}" alt="${event.title}" class="event-card-img" loading="lazy">
+        <div class="event-date-badge">
+          <div class="day">${event.day || 'EV'}</div>
+          <div class="month">${event.month || 'AGO'}</div>
+        </div>
+      </div>
+      <div class="event-card-body">
+        <h3 class="event-card-title">${event.title}</h3>
+        <p style="color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px;">${event.subtitle || ''}</p>
+        <p class="event-card-desc">${event.description}</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px;">
+          <span style="font-weight: 700; color: var(--navy); font-size: 1rem;">${event.priceText || ''}</span>
+          <a href="#reservas" class="btn-navy" style="padding: 6px 16px; font-size: 0.8rem;">Reservar</a>
+        </div>
+      </div>
+    </article>
+  `).join('');
 }
 
 // Handle Reservation Form Submit
@@ -361,8 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeDataStore();
   renderMenu('todos');
   setupMenuFilters();
-  syncSpecialEventState();
-  setupLightbox();
+  renderEventsSection();
   setupReservationForm();
   setupNavigation();
 });
